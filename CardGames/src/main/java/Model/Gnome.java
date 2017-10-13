@@ -7,6 +7,6 @@ public class Gnome extends Race {
 
     }
     void Power(){
-        
+
     }
 }
