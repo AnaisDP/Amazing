@@ -5,7 +5,4 @@ public class Gobelin extends Race{
         this.name = "Gobelin";
         this.power = "Switch your hand with you opponent";
     }
-    public void Power(){
-
-    }
 }

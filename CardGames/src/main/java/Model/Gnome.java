@@ -5,8 +5,4 @@ public class Gnome extends Race {
         this.name = "Gnome";
         this.power = "Draw 2 cards";
     }
-
-    public void power(){
-
-    }
 }
