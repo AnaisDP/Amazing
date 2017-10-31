@@ -5,4 +5,8 @@ public class Troll extends Race {
         this.name = "Troll";
         this.power = "swipe the hand of your opponent with yours";
     }
+
+    public void power(){
+
+    }
 }
