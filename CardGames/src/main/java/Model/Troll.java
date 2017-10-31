@@ -5,8 +5,4 @@ public class Troll extends Race {
         this.name = "Troll";
         this.power = "Swap the cards in front of you with the cards in front of your opponent";
     }
-
-    public void power(){
-
-    }
 }
