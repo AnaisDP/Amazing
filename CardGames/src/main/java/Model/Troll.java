@@ -3,10 +3,6 @@ package Model;
 public class Troll extends Race {
     public Troll(){
         this.name = "Troll";
-        this.power = "swipe the hand of your opponent with yours";
-    }
-
-    public void power(){
-
+        this.power = "Swap the cards in front of you with the cards in front of your opponent";
     }
 }
