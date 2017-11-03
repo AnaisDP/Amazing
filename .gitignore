@@ -2,5 +2,6 @@
 # IntelliJ project files
 .idea
 *.xml
+Amazing.iml
 out
 gen
