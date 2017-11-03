@@ -1,6 +1,6 @@
-package Controller;
+package com.amazing.software.Controller;
 
-import Model.Carte;
+import com.amazing.software.Model.Carte;
 import javafx.application.Application;
 import javafx.stage.Stage;
 

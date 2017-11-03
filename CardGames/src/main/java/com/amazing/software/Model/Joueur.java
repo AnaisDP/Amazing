@@ -1,6 +1,5 @@
-package Model;
+package com.amazing.software.Model;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 

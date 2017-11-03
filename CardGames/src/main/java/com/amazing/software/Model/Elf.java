@@ -1,4 +1,4 @@
-package Model;
+package com.amazing.software.Model;
 
 public class Elf extends Race {
 
