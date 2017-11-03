@@ -8,6 +8,11 @@ public class Joueur {
     private List<Carte> terrain;
     private int population;
 
+
+    public List<Carte> getMain() {
+        return main;
+    }
+
     public Joueur(List<Carte> main, List<Carte> terrain, int population){
         this.main = main;
         this.terrain = terrain;
