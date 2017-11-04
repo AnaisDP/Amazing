@@ -10,7 +10,12 @@
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/com.zenjava/javafx-maven-plugin -->
-
+        <dependency>
+            <groupId>junit</groupId>
+            <artifactId>junit</artifactId>
+            <version>4.12</version>
+            <scope>test</scope>
+        </dependency>
 
     </dependencies>
 
