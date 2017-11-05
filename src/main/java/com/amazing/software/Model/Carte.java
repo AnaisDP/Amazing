@@ -4,6 +4,10 @@ public class Carte {
     private Boolean retournee = true;
     private Race race;
 
+    public Race getRace() {
+        return race;
+    }
+
     public Boolean getRetournee() {
         return retournee;
     }
