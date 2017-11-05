@@ -18,7 +18,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class CarteController implements Initializable {
+public class CarteController {
 
 
 
@@ -27,19 +27,25 @@ public class CarteController implements Initializable {
 
     Carte carte;
 
-   /* public Pane getCardUi() {
-        return cardUi;
-    }*/
+    public Carte getCarte() {
+        return carte;
+    }
+
+    public Pane getPane() {
+        return pane;
+    }
 
     public CarteController (Carte carte){
         this.carte = carte;
 
     }
 
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
+    public void initCard(){
         //Initialize card here
-        if (this.carte.getRace().getName() == "Elf"){
+        if(this.carte.getRetournee() == false){
+            this.pane.setStyle("-fx-background-color: black;");
+        }
+        else if (this.carte.getRace().getName() == "Elf"){
             this.pane.setStyle("-fx-background-color: green;");
         }
         else if (this.carte.getRace().getName() == "Dryad"){
@@ -62,6 +68,36 @@ public class CarteController implements Initializable {
         }
 
     }
+
+    /*@Override
+    public void initialize(URL url, ResourceBundle resourceBundle){
+        //Initialize card here
+        if(this.carte.getRetournee() == false){
+            this.pane.setStyle("-fx-background-color: black;");
+        }
+        else if (this.carte.getRace().getName() == "Elf"){
+            this.pane.setStyle("-fx-background-color: green;");
+        }
+        else if (this.carte.getRace().getName() == "Dryad"){
+            this.pane.setStyle("-fx-background-color: white;");
+        }
+        else if (this.carte.getRace().getName() == "Gobelin"){
+            this.pane.setStyle("-fx-background-color: blue;");
+        }
+        else if (this.carte.getRace().getName() == "Gnome"){
+            this.pane.setStyle("-fx-background-color: orange;");
+        }
+        else if (this.carte.getRace().getName() == "Korrigan"){
+            this.pane.setStyle("-fx-background-color: red;");
+        }
+        else if (this.carte.getRace().getName() == "Dryad"){
+            this.pane.setStyle("-fx-background-color: yellow;");
+        }
+        else if (this.carte.getRace().getName() == "Troll"){
+            this.pane.setStyle("-fx-background-color: purple;");
+        }
+
+    }*/
 
 
 }

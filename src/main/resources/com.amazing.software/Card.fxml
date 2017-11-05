@@ -3,6 +3,6 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<Pane fx:id="pane" prefHeight="40.0" prefWidth="30.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="pane" prefHeight="70.0" prefWidth="40.0" style="-fx-background-color: orange;" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
 
 </Pane>

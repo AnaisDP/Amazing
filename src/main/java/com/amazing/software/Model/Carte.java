@@ -1,7 +1,7 @@
 package com.amazing.software.Model;
 
 public class Carte {
-    private Boolean retournee = true;
+    private Boolean retournee = false;
     private Race race;
 
     public Race getRace() {
