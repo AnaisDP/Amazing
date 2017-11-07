@@ -1,5 +1,6 @@
 package com.amazing.software.Model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
@@ -8,10 +9,10 @@ public class Joueur {
     private List<Carte> terrain;
     private int population;
 
-    public Joueur(List<Carte> main, List<Carte> terrain, int population){
-        this.main = main;
-        this.terrain = terrain;
-        this.population = population;
+    public Joueur(){
+        this.main = new ArrayList<Carte>();
+        this.terrain = new ArrayList<Carte>();
+        this.population = 0;
     }
 
     public void Draw(Stack<Carte> deck){
@@ -20,5 +21,16 @@ public class Joueur {
 
     public Carte Play(int index){
         return main.get(index);
+    }
+    public List<Carte> getMain() {
+        return main;
+    }
+
+    public List<Carte> getTerrain() {
+        return terrain;
+    }
+
+    public int getPopulation() {
+        return population;
     }
 }
