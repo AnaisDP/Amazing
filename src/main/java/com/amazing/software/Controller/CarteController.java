@@ -54,25 +54,25 @@ public class CarteController extends Pane {
         if(this.carte.getRetournee() == false){
             this.pane.setStyle("-fx-background-color: black;");
         }
-        else if (this.carte.getRace().getName() == "Elf"){
+        else if (this.carte.getRace().getName().equals("Elf")){
             this.pane.setStyle("-fx-background-color: green;");
         }
-        else if (this.carte.getRace().getName() == "Dryad"){
+        else if (this.carte.getRace().getName().equals("Dryad")){
             this.pane.setStyle("-fx-background-color: white;");
         }
-        else if (this.carte.getRace().getName() == "Gobelin"){
+        else if (this.carte.getRace().getName().equals("Gobelin")){
             this.pane.setStyle("-fx-background-color: blue;");
         }
-        else if (this.carte.getRace().getName() == "Gnome"){
+        else if (this.carte.getRace().getName().equals("Gnome")){
             this.pane.setStyle("-fx-background-color: orange;");
         }
-        else if (this.carte.getRace().getName() == "Korrigan"){
+        else if (this.carte.getRace().getName().equals("Korrigan")){
             this.pane.setStyle("-fx-background-color: red;");
         }
-        else if (this.carte.getRace().getName() == "Dryad"){
+        else if (this.carte.getRace().getName().equals("Dryad")){
             this.pane.setStyle("-fx-background-color: yellow;");
         }
-        else if (this.carte.getRace().getName() == "Troll"){
+        else if (this.carte.getRace().getName().equals("Troll")){
             this.pane.setStyle("-fx-background-color: purple;");
         }
 
