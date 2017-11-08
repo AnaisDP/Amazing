@@ -5,19 +5,19 @@ import java.util.List;
 import java.util.Stack;
 
 public class Jeu {
-    Joueur p1;
-    Joueur p2;
+    Player p1;
+    Player p2;
     Stack<Carte> deck;
 
     public Stack<Carte> getDeck() {
         return deck;
     }
 
-    public Joueur getP1() {
+    public Player getP1() {
         return p1;
     }
 
-    public Jeu(Joueur p1, Joueur p2) {
+    public Jeu(Player p1, Player p2) {
         this.p1 = p1;
         this.p2 = p2;
         List<Carte> myList = GenerateDeck();

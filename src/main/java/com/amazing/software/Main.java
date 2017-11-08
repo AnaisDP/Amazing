@@ -1,12 +1,7 @@
 package com.amazing.software;
 
 import com.amazing.software.Controller.BoardController;
-import com.amazing.software.Controller.CarteController;
-import com.amazing.software.Model.Jeu;
-import com.amazing.software.Model.Joueur;
 import javafx.application.Application;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;

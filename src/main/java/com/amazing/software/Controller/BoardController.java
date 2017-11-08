@@ -1,26 +1,15 @@
 package com.amazing.software.Controller;
 
-import com.amazing.software.Main;
-import com.amazing.software.Model.Carte;
-import com.amazing.software.Model.Jeu;
-import com.amazing.software.Model.Joueur;
-import javafx.application.Application;
+import com.amazing.software.Model.*;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
-import javafx.event.Event;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
 
-import java.awt.event.MouseEvent;
 import java.net.URL;
 import java.util.*;
 
@@ -28,18 +17,20 @@ public class BoardController implements Initializable {
 
     //TODO assigné dans la vue
     @FXML
-    private GridPane handUiP1; //Ui main du joueur 1
+    private GridPane handUiP1; //Ui handPlayer du joueur 1
     @FXML
-    private GridPane handUiP2; // Ui main du joueur 2
+    private GridPane handUiP2; // Ui handPlayer du joueur 2
     @FXML
     private Pane pioche; //Ui pour la pioche
     @FXML
     private GridPane terrainUiP1; //Ui pour le terrain du joueur 1
     @FXML
     private GridPane terrainUiP2; //Ui pour le terrain du joueur 2
-    private Joueur player1;
-    private Joueur player2;
-    private Jeu game;
+    private Player player1;
+    private Player player2;
+
+    private Stack<Carte> deck;
+    //private Jeu game;
     ///Ces variable sont bindées via les Listeners
     private ObservableList<CarteController> handP1 = FXCollections.observableArrayList(); //Bind sur handUiP1
     private ObservableList<CarteController> handP2 = FXCollections.observableArrayList(); //Bind sur handUiP2
@@ -48,19 +39,66 @@ public class BoardController implements Initializable {
 
 
     public BoardController() throws Exception{
-        this.player1 = new Joueur();
-        this.player2 = new Joueur();
-        this.game = new Jeu(player1,player2);
+        this.player1 = new Player();
+        this.player2 = new Player();
+        //this.game = new Jeu(player1,player2);
     }
 
-    public void StartGame()throws Exception{
-        int count = 0;
-        for(Carte carte :player1.getMain()){
-            Draw(carte,player1);
+    private void GenerateDeck(){
+        //TODO
+        List<Carte> list = new ArrayList<Carte>();
+        list = GenerateADeck();
+        java.util.Collections.shuffle(list);
+        this.deck = (Stack)list;
+    }
+
+    private List<Carte> GenerateADeck(){
+        List<Carte> myList = new ArrayList<Carte>();
+        //Dryad
+        for(int i = 0; i < 7 ; i++){
+            Carte card = new Carte(new Dryad());
+            myList.add(card);
+        }
+        //Elf
+        for(int i = 0; i < 7 ; i++){
+            Carte card = new Carte(new Elf());
+            myList.add(card);
+        }
+        //Gnome
+        for(int i = 0; i < 7 ; i++){
+            Carte card = new Carte(new Gnome());
+            myList.add(card);
+        }
+        //Gobelin
+        for(int i = 0; i < 7 ; i++){
+            Carte card = new Carte(new Gobelin());
+            myList.add(card);
+        }
+        //Korrigan
+        for(int i = 0; i < 7 ; i++){
+            Carte card = new Carte(new Korrigan());
+            myList.add(card);
+        }
+        //Troll
+        for(int i = 0; i < 7 ; i++) {
+            Carte card = new Carte(new Troll());
+            myList.add(card);
+        }
+        return myList;
+    }
+
+    public  void Distribute(Player player){
+        while(player.getHandPlayer().size() < 5){
+            player.Draw(this.deck);
         }
     }
+    public void StartGame()throws Exception{
+        GenerateDeck();
+        Distribute(player1);
+        Distribute(player2);
+    }
 
-    public void Draw(Carte carte,Joueur joueur) throws Exception{
+    /*public void Draw(Carte carte,Player player) throws Exception{
         carte.setRetournee(Boolean.TRUE);
         URL fxmlURL = getClass().getResource("/com.amazing.software/Card.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL);
@@ -69,7 +107,7 @@ public class BoardController implements Initializable {
         CarteController carteController = fxmlLoader.getController();
         carteController.initCard();
         handP1.add(carteController);
-    }
+    }*/
 
     @Override
     //Cette fonction est appellé lorsque que BoardController est completement initialisé
@@ -93,7 +131,7 @@ public class BoardController implements Initializable {
 
     //region InitMethods
     private void gridPaneInit(){
-        //Initialisation du GridPane avec 1 ligne 1 colonne (Main vide)
+        //Initialisation du GridPane avec 1 ligne 1 colonne (handPlayer vide)
         final RowConstraints rowConstraints = new RowConstraints();
         this.handUiP1.getRowConstraints().add(rowConstraints);
         final ColumnConstraints columnConstraints = new ColumnConstraints();
@@ -106,10 +144,10 @@ public class BoardController implements Initializable {
     //endregion
 
     //region Get/Set
-    public Joueur getPlayer1() {
+    public Player getPlayer1() {
         return player1;
     }
-    public Joueur getPlayer2() {
+    public Player getPlayer2() {
         return player2;
     }
     //endregion

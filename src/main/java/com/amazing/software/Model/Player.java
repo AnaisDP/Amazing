@@ -4,26 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class Joueur {
-    private List<Carte> main;
+public class Player {
+    private List<Carte> handPlayer;
     private List<Carte> terrain;
     private int population;
 
-    public Joueur(){
-        this.main = new ArrayList<Carte>();
+    public Player(){
+        this.handPlayer = new ArrayList<Carte>();
         this.terrain = new ArrayList<Carte>();
         this.population = 0;
     }
 
     public void Draw(Stack<Carte> deck){
-        main.add(deck.pop());
+        handPlayer.add(deck.pop());
     }
 
     public Carte Play(int index){
-        return main.get(index);
+        return handPlayer.get(index);
     }
-    public List<Carte> getMain() {
-        return main;
+    public List<Carte> getHandPlayer() {
+        return handPlayer;
     }
 
     public List<Carte> getTerrain() {

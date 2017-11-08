@@ -44,39 +44,33 @@ public class CarteController extends Pane {
         return pane;
     }
 
-    public CarteController (Carte carte,BoardController boardController){
+    public CarteController(Carte carte, BoardController boardController) {
         this.carte = carte;
         this.boardController = boardController;
     }
 
-    public void initCard(){
+    public void initCard() {
         //Initialize card here
-        if(this.carte.getRetournee() == false){
+        if (this.carte.getRetournee() == false) {
             this.pane.setStyle("-fx-background-color: black;");
-        }
-        else if (this.carte.getRace().getName() == "Elf"){
+        } else if (this.carte.getRace().getName() == "Elf") {
             this.pane.setStyle("-fx-background-color: green;");
-        }
-        else if (this.carte.getRace().getName() == "Dryad"){
+        } else if (this.carte.getRace().getName() == "Dryad") {
             this.pane.setStyle("-fx-background-color: white;");
-        }
-        else if (this.carte.getRace().getName() == "Gobelin"){
+        } else if (this.carte.getRace().getName() == "Gobelin") {
             this.pane.setStyle("-fx-background-color: blue;");
-        }
-        else if (this.carte.getRace().getName() == "Gnome"){
+        } else if (this.carte.getRace().getName() == "Gnome") {
             this.pane.setStyle("-fx-background-color: orange;");
-        }
-        else if (this.carte.getRace().getName() == "Korrigan"){
+        } else if (this.carte.getRace().getName() == "Korrigan") {
             this.pane.setStyle("-fx-background-color: red;");
-        }
-        else if (this.carte.getRace().getName() == "Dryad"){
+        } else if (this.carte.getRace().getName() == "Dryad") {
             this.pane.setStyle("-fx-background-color: yellow;");
-        }
-        else if (this.carte.getRace().getName() == "Troll"){
+        } else if (this.carte.getRace().getName() == "Troll") {
             this.pane.setStyle("-fx-background-color: purple;");
         }
 
-        this.pane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+ /*       this.pane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
             @Override
             public void handle(MouseEvent event) {
                 System.out.println(carte.getRace());
@@ -89,6 +83,7 @@ public class CarteController extends Pane {
             }
         });
     }
+    */
 
     /*@Override
     public void initialize(URL url, ResourceBundle resourceBundle){
@@ -120,4 +115,5 @@ public class CarteController extends Pane {
     }*/
 
 
+    }
 }
