@@ -6,6 +6,9 @@ import java.util.Stack;
 
 public class Joueur {
     private List<Carte> main;
+
+
+
     private List<Carte> terrain;
     private int population;
 
@@ -31,6 +34,8 @@ public class Joueur {
     public List<Carte> getMain() {
         return main;
     }
+    public void setMain(List<Carte> main) {this.main = main;}
+    public void setTerrain(List<Carte> terrain) { this.terrain = terrain; }
 
     public List<Carte> getTerrain() {
         return terrain;

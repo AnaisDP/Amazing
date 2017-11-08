@@ -31,4 +31,18 @@ public class Stepdefs {
         monJeu = new Jeu(p1,p2);
     }
 
+    @Given("^I have a player$")
+    public void CreatePlayer() throws Exception{
+        p1 = new Joueur();
+    }
+
+    @Then("^He have (\\d+) card$")
+    public void NbOfCards(int nbCards) throws Exception{
+        assertEquals("p1 should have "+nbCards, nbCards,p1.getMain().size());
+    }
+
+    @When("^He draw (\\d+) card$")
+    public void DrawCard(int NbCards) throws  Exception{
+    }
+
 }
