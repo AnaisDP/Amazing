@@ -18,6 +18,12 @@ public class Joueur {
     public void Draw(Stack<Carte> deck){
         main.add(deck.pop());
     }
+    public void StealCard(int index,Joueur Joueur2){
+        Carte carte=Joueur2.getMain().get(index);
+        main.add(carte);
+        Joueur2.getMain().remove(carte);
+    }
+
 
     public Carte Play(int index){
         return main.get(index);
