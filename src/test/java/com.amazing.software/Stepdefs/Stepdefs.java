@@ -30,5 +30,9 @@ public class Stepdefs {
     public void CreateGame() throws Exception{
         monJeu.StartGame();
     }
+    @Then("^each players have (\\d+) cards in its handUi")
+    public void TestCardsUi(int nbCards) throws Exception {
+        assertEquals("p1 should have "+nbCards+" in its handUi", nbCards,monJeu.getHandUiP1().getChildren().size());
+    }
 
 }

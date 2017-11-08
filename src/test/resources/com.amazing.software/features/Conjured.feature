@@ -5,3 +5,8 @@ Scenario: Create Game
   Then each players have 0 cards
   When I Create a new Game
   Then each players have 5 cards
+
+  Scenario: Ui test
+    Given I have two players
+    When I Create a new Game
+    Then each players have 5 cards in its handUi

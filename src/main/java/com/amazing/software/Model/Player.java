@@ -10,13 +10,15 @@ import java.util.List;
 import java.util.Stack;
 
 public class Player {
-    private List<Carte> terrain;
+    private ListProperty<Carte> board;
     private ListProperty<Carte> hand;
     private int population;
 
     public Player(){
         ObservableList<Carte> observableList = FXCollections.observableArrayList();
         this.hand = new SimpleListProperty<Carte>(observableList);
+        ObservableList<Carte> observableList1 = FXCollections.observableArrayList();
+        this.board = new SimpleListProperty<Carte>(observableList1);
     }
 
 
@@ -35,12 +37,17 @@ public class Player {
 
     //Region Get/Set
 
-    public List<Carte> getTerrain() {
-        return terrain;
+
+    public ObservableList<Carte> getBoard() {
+        return board.get();
     }
 
-    public void setTerrain(List<Carte> terrain) {
-        this.terrain = terrain;
+    public ListProperty<Carte> boardProperty() {
+        return board;
+    }
+
+    public void setBoard(ObservableList<Carte> board) {
+        this.board.set(board);
     }
 
     public int getPopulation() {
