@@ -26,15 +26,7 @@ public class CarteController extends Pane {
     @FXML
     Pane pane;
 
-
-    //Permet d'avoir accés aux contenue graphique du Board
-    BoardController boardController;
-
     Carte carte;
-
-    public void setBoardController(BoardController boardController) {
-        this.boardController = boardController;
-    }
 
     public Carte getCarte() {
         return carte;
@@ -44,16 +36,18 @@ public class CarteController extends Pane {
         return pane;
     }
 
-    public CarteController(Carte carte, BoardController boardController) {
+    public CarteController(Carte carte) throws Exception{
         this.carte = carte;
-        this.boardController = boardController;
+        URL fxmlUrl = getClass().getResource("/com.amazing.software/Card.fxml");
+        FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl);
+        fxmlLoader.setController(this);
+        this.pane = (Pane)fxmlLoader.load();
+        initCard();
     }
 
-    public void initCard() {
+    private void initCard() {
         //Initialize card here
-        if (this.carte.getRetournee() == false) {
-            this.pane.setStyle("-fx-background-color: black;");
-        } else if (this.carte.getRace().getName() == "Elf") {
+        if (this.carte.getRace().getName() == "Elf") {
             this.pane.setStyle("-fx-background-color: green;");
         } else if (this.carte.getRace().getName() == "Dryad") {
             this.pane.setStyle("-fx-background-color: white;");

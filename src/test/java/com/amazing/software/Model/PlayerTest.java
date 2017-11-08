@@ -13,7 +13,7 @@ public class PlayerTest {
         Stack<Carte> deck = new Stack();
         deck.push(new Carte(new Troll()));
         newPlayer.Draw(deck);
-        assertEquals("Player should have 1 card",1,newPlayer.getHandPlayer().size());
+        assertEquals("Player should have 1 card",1,newPlayer.getHand().size());
         assertEquals("The deck should have one card less",0,deck.size());
     }
 

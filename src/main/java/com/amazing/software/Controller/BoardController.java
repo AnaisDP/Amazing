@@ -1,6 +1,9 @@
 package com.amazing.software.Controller;
 
 import com.amazing.software.Model.*;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
@@ -23,35 +26,31 @@ public class BoardController implements Initializable {
     @FXML
     private Pane pioche; //Ui pour la pioche
     @FXML
-    private GridPane terrainUiP1; //Ui pour le terrain du joueur 1
+    private GridPane boardUiP1; //Ui pour le terrain du joueur 1
     @FXML
-    private GridPane terrainUiP2; //Ui pour le terrain du joueur 2
+    private GridPane boardUiP2; //Ui pour le terrain du joueur 2
+
     private Player player1;
     private Player player2;
 
-    private Stack<Carte> deck;
-    //private Jeu game;
-    ///Ces variable sont bindées via les Listeners
-    private ObservableList<CarteController> handP1 = FXCollections.observableArrayList(); //Bind sur handUiP1
-    private ObservableList<CarteController> handP2 = FXCollections.observableArrayList(); //Bind sur handUiP2
-    private ObservableList<CarteController> boardP1 = FXCollections.observableArrayList(); //Bind sur terrainUiP1
-    private ObservableList<CarteController> boardP2 = FXCollections.observableArrayList(); //Bind sur terrainUiP2
+    //Listen if an object has changed
 
+    private Stack<Carte> deck;
 
     public BoardController() throws Exception{
         this.player1 = new Player();
         this.player2 = new Player();
-        //this.game = new Jeu(player1,player2);
+        this.deck = new Stack<Carte>();
     }
 
+
+    ///Initialize a shuffled deck this is the main function to generate the deck
     private void GenerateDeck(){
-        //TODO
-        List<Carte> list = new ArrayList<Carte>();
-        list = GenerateADeck();
+        List<Carte> list = GenerateADeck();
         java.util.Collections.shuffle(list);
-        this.deck = (Stack)list;
+        this.deck.addAll(list);
     }
-
+    ///Generate a deck with all different race
     private List<Carte> GenerateADeck(){
         List<Carte> myList = new ArrayList<Carte>();
         //Dryad
@@ -87,59 +86,72 @@ public class BoardController implements Initializable {
         return myList;
     }
 
+    ///Distribute 5cards to the player from the deck, used to launch the game
     public  void Distribute(Player player){
-        while(player.getHandPlayer().size() < 5){
-            player.Draw(this.deck);
-        }
+       while(player.getHand().size()<5){
+           player.Draw(this.deck);
+       }
     }
+
+    ///First function to call in the main
     public void StartGame()throws Exception{
         GenerateDeck();
         Distribute(player1);
         Distribute(player2);
+
     }
 
-    /*public void Draw(Carte carte,Player player) throws Exception{
-        carte.setRetournee(Boolean.TRUE);
-        URL fxmlURL = getClass().getResource("/com.amazing.software/Card.fxml");
-        FXMLLoader fxmlLoader = new FXMLLoader(fxmlURL);
-        fxmlLoader.setController(new CarteController(carte,this));
-        Pane pane = (Pane)fxmlLoader.load();
-        CarteController carteController = fxmlLoader.getController();
-        carteController.initCard();
-        handP1.add(carteController);
-    }*/
+
+    //TODO Listener sur main du player2
+    //TODO Listener sur terrain des players
+    //TODO Event sur les listeners créé
+    //TODO Pioche
 
     @Override
     //Cette fonction est appellé lorsque que BoardController est completement initialisé
     public void initialize(URL location, ResourceBundle resources){
-        //On ajoute les listener a l'initialisation de la vue
-        handP1.addListener(new ListChangeListener<CarteController>() {
-
-            @Override
-            public void onChanged(Change<? extends CarteController> c) {
-                System.out.println("Change detected on" + c);
-                while(c.next()){
-                    System.out.println("Change from "+c.getFrom());
-                    final ColumnConstraints columnConstraints = new ColumnConstraints();
-                    handUiP1.getColumnConstraints().add(columnConstraints);
-                    handUiP1.add(handP1.get(c.getFrom()).getPane(),c.getFrom(),0);
-                }
-            }
-        });
         gridPaneInit();
+        InitListener();
     }
 
     //region InitMethods
     private void gridPaneInit(){
+        //Space between 2 card
+        this.handUiP1.setVgap(15);
+        this.handUiP1.setHgap(15);
+
+        this.handUiP1.setAlignment(Pos.CENTER);
         //Initialisation du GridPane avec 1 ligne 1 colonne (handPlayer vide)
         final RowConstraints rowConstraints = new RowConstraints();
         this.handUiP1.getRowConstraints().add(rowConstraints);
         final ColumnConstraints columnConstraints = new ColumnConstraints();
         this.handUiP1.getColumnConstraints().add(columnConstraints);
         this.handUiP1.setGridLinesVisible(true);
-        this.handUiP1.setVgap(15);
-        this.handUiP1.setHgap(15);
-        this.handUiP1.setAlignment(Pos.CENTER);
+    }
+    public void InitListener(){
+
+        //Ajout d'un listener sur la propriété hand de Player1
+        this.player1.handProperty().addListener(new ListChangeListener<Carte>() {
+            @Override
+            public void onChanged(Change<? extends Carte> c) {
+                while (c.next()){
+                    if(c.wasAdded()){
+                        System.out.println("Card +"+c.toString()+" was add at "+c.getFrom());
+                        try {
+                            CarteController carteController = new CarteController(player1.getHand().get(c.getFrom()));
+                            ColumnConstraints columnConstraints = new ColumnConstraints();
+                            handUiP1.getColumnConstraints().add(columnConstraints);
+                            handUiP1.add(carteController.getPane(),c.getFrom(),0);
+                        }
+                        catch (Exception e)
+                        {
+                            System.out.println(e.toString());
+                        }
+
+                    }
+                }
+            }
+        });
     }
     //endregion
 
@@ -150,8 +162,6 @@ public class BoardController implements Initializable {
     public Player getPlayer2() {
         return player2;
     }
+    public GridPane getHandUiP1() {return handUiP1;}
     //endregion
-
-    //TODO Implémenter la fonction onClick des cartes qui permettra de la poser sur le terrain
-    //TODO Implémenter la fonction piocher au niveau de l'UI
 }
