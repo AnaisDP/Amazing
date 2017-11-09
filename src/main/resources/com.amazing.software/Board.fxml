@@ -20,43 +20,9 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <GridPane fx:id="terrain" prefHeight="71.0" prefWidth="331.0" style="-fx-border-color: black;">
-              <columnConstraints>
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-              </columnConstraints>
-              <rowConstraints>
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-              </rowConstraints>
-               <opaqueInsets>
-                  <Insets right="10.0" />
-               </opaqueInsets>
-               <effect>
-                  <BoxBlur />
-               </effect>
+            <GridPane fx:id="boardUiP2" prefHeight="71.0" prefWidth="331.0" style="-fx-border-color: black;">
             </GridPane>
-            <GridPane prefHeight="71.0" prefWidth="331.0" style="-fx-border-color: black;" GridPane.rowIndex="1">
-               <columnConstraints>
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                  <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-               </columnConstraints>
-               <rowConstraints>
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               </rowConstraints>
-               <opaqueInsets>
-                  <Insets right="10.0" />
-               </opaqueInsets>
-               <effect>
-                  <BoxBlur />
-               </effect>
+            <GridPane fx:id="boardUiP1" prefHeight="71.0" prefWidth="331.0" style="-fx-border-color: black;" GridPane.rowIndex="1">
             </GridPane>
          </children>
       </GridPane>
