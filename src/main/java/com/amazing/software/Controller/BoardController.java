@@ -185,7 +185,6 @@ public class BoardController implements Initializable {
                         System.out.println("Card +"+c.toString()+" was removed at "+c.getFrom());
                         handUiP1.getChildren().remove(c.getFrom());
                         handUiP1.setAlignment(Pos.CENTER);
-
                     }
                 }
             }
