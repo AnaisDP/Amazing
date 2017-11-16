@@ -1,4 +1,4 @@
-package com.amazing.software.Stepdefs;
+/*package com.amazing.software.Stepdefs;
 
 import com.amazing.software.Controller.BoardController;
 import com.amazing.software.Model.Player;
@@ -35,4 +35,4 @@ public class Stepdefs {
         assertEquals("p1 should have "+nbCards+" in its handUi", nbCards,monJeu.getHandUiP1().getChildren().size());
     }
 
-}
+}*/

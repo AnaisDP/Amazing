@@ -1,6 +1,6 @@
 package com.amazing.software.Model;
 
-public class Carte {
+public class Card {
     private Boolean retournee = false;
     private Race race;
 
@@ -16,11 +16,11 @@ public class Carte {
         this.retournee = retournee;
     }
 
-    public Carte(Race race){
+    public Card(Race race){
         this.race = race;
     }
 
     public String ToString(){
-        return "La race de cette carte est " + race.name;
+        return "La race de cette Card est " + race.name;
     }
 }

@@ -1,6 +1,6 @@
 package com.amazing.software;
 
-import com.amazing.software.Controller.BoardController;
+import com.amazing.software.Model.Game;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +12,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        try {
+        /*try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("/com.amazing.software/Board.fxml"));
             loader.setController(new BoardController());
             Parent root = loader.load();
@@ -24,9 +24,12 @@ public class Main extends Application {
 
         } catch(Exception e) {
             e.printStackTrace();
-        }
+        }*/
     }
+
+
     public static void main(String[] args) {
+        Game game = new Game();
         launch(args);
     }
 
