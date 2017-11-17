@@ -9,7 +9,7 @@
         <module name="Amazing" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.8">
+    <bytecodeTargetLevel>
       <module name="Amazing" target="1.8" />
     </bytecodeTargetLevel>
   </component>
