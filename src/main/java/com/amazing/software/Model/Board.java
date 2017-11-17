@@ -1,7 +1,9 @@
 package com.amazing.software.Model;
 
+import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 import java.util.Stack;
 
 public class Board {
@@ -57,4 +59,46 @@ public class Board {
         }
         return allDeck;
     }
+
+    public void LaunchGame(){
+        //Distribute 5 card to each
+        while(player1.getHand().size() < 5 && player2.getHand().size() < 5){
+            player1.Draw(this.deck);
+            player2.Draw(this.deck);
+        }
+
+        Scanner reader = new Scanner(System.in);  // Reading from System.in
+        //Lancement de la boucle de jeu
+        while(deck.size() != 0 && (player1.getHand().size() != 0 || player2.getHand().size() != 0)) {
+            DisplayBoard();
+            System.out.println("Jouez une carte :");
+            int cardPlayedP1 = reader.nextInt();
+            player1.Draw(this.deck);
+            player1.Play(cardPlayedP1);
+            DisplayBoard();
+
+            //L'IA jou tjrs la première carte
+            player2.Draw(this.deck);
+            player2.Play(0);
+
+        }
+        System.out.println("Fin du jeu !");
+        reader.close();
+    }
+
+    private void DisplayBoard(){
+        System.out.println("Main joueur 1:");
+        for(Card carte : player1.getHand()){
+            System.out.println(carte);
+        }
+        System.out.println("board joueur 1:");
+        for(Card carte : player1.getBoard()){
+            System.out.println(carte);
+        }
+        System.out.println("board joueur 2:");
+        for(Card carte : player2.getBoard()){
+            System.out.println(carte);
+        }
+    }
 }
+

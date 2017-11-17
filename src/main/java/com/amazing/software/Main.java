@@ -7,12 +7,12 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class Main extends Application {
+public class Main /*extends Application*/ {
 
 
-    @Override
+    /*@Override
     public void start(Stage primaryStage) {
-        /*try {
+        try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("/com.amazing.software/Board.fxml"));
             loader.setController(new BoardController());
             Parent root = loader.load();
@@ -25,12 +25,11 @@ public class Main extends Application {
         } catch(Exception e) {
             e.printStackTrace();
         }*/
-    }
 
 
     public static void main(String[] args) {
         Game game = new Game();
-        launch(args);
+        //launch(args);
     }
 
 }

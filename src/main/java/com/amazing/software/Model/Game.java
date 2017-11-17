@@ -7,5 +7,6 @@ public class Game {
 
     public Game(){
         boardGame.GenerateDeck();
+        boardGame.LaunchGame();
+        }
     }
-}

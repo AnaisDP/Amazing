@@ -20,7 +20,8 @@ public class Card {
         this.race = race;
     }
 
-    public String ToString(){
-        return "La race de cette Card est " + race.name;
+    @Override
+    public String toString() {
+        return race.name;
     }
 }
