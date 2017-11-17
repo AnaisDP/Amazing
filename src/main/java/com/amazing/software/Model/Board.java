@@ -69,16 +69,20 @@ public class Board {
 
         Scanner reader = new Scanner(System.in);  // Reading from System.in
         //Lancement de la boucle de jeu
-        while(deck.size() != 0 && (player1.getHand().size() != 0 || player2.getHand().size() != 0)) {
+        while(player1.getHand().size() != 0 || player2.getHand().size() != 0) {
             DisplayBoard();
             System.out.println("Jouez une carte :");
             int cardPlayedP1 = reader.nextInt();
-            player1.Draw(this.deck);
+            if(deck.size() != 0) {
+                player1.Draw(this.deck);
+            }
             player1.Play(cardPlayedP1);
             DisplayBoard();
 
             //L'IA jou tjrs la première carte
-            player2.Draw(this.deck);
+            if(deck.size() != 0) {
+                player2.Draw(this.deck);
+            }
             player2.Play(0);
 
         }
