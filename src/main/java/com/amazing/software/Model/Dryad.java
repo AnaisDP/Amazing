@@ -10,11 +10,6 @@ public class Dryad extends Race {
     }
     @Override
     public void Power(Player p1, Player p2, Stack<Card> Deck, int index){
-        if(p2.getBoard()==null){
-
-        }
-        else{
             p1.getBoard().add(p2.getBoard().remove(index));
-        }
     }
 }

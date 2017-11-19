@@ -12,9 +12,16 @@ public class Korrigan extends Race {
     }
     @Override
     public void Power(Player p1,Player p2,Stack<Card> Deck,int index){
-        for(int i=0;i<2;i++){
-           int randomNum = (int)(Math.random() * p2.getHand().size());
-           p1.getHand().add(p2.getHand().remove(randomNum));
+        if(p2.getHand().size()==0){
+
+        }else if(p2.getHand().size()==1){
+            p1.getHand().add(p2.getHand().remove(0));
+        }
+        else {
+            for(int i=0;i<2;i++){
+                int randomNum = (int)(Math.random() * p2.getHand().size());
+                p1.getHand().add(p2.getHand().remove(randomNum));
+            }
         }
     }
 

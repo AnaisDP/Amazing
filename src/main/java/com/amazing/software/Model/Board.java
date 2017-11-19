@@ -73,17 +73,18 @@ public class Board {
                 int cardchosen = reader.nextInt();
                 card.getRace().Power(playing,opponent,this.deck,cardchosen);
             }
-
         }
         else if(card.getRace() instanceof Elf){
-            if(playing.getBoard().size()==1)
-            {
-
-            }
+            if(playing.getBoard().size()==1) {}
             else{
                 System.out.println("Quelle carte de votre board choisissez vous de copier ?");
                 int cardchosen = reader.nextInt();
-                card.getRace().Power(playing,opponent,this.deck,cardchosen);
+                if(playing.getBoard().get(cardchosen).getRace() instanceof Elf){
+                    ActivePower(playing,opponent,playing.getBoard().get(cardchosen));
+                }else{
+                    card.getRace().Power(playing,opponent,this.deck,cardchosen);
+                }
+
             }
         }
         else{
@@ -103,21 +104,30 @@ public class Board {
             if(deck.size() != 0) {
                 player1.Draw(this.deck);
             }
-            DisplayBoard();
-            System.out.println("Jouez une carte :");
-            int cardPlayedP1 = reader.nextInt();
-            Card carte=player1.Play(cardPlayedP1);
-            DisplayBoard();
-            ActivePower(player1,player2,carte);
+            if(player1.getHand().size()!=0){
+                DisplayBoard();
+                System.out.println("Jouez une carte :");
+                int cardPlayedP1 = reader.nextInt();
+                Card carte=player1.Play(cardPlayedP1);
+                DisplayBoard();
+                ActivePower(player1,player2,carte);
+            }else{
+                System.out.println("Vous n'avez plus de cartes dans votre main, vous passez votre tour");
+            }
             DisplayBoard();
 
             //L'IA jou tjrs la première carte
             if(deck.size() != 0) {
                 player2.Draw(this.deck);
             }
-            DisplayBoard();
-            carte=player2.Play(0);
-            ActivePower(player2,player1,carte);
+            if(player2.getHand().size()!=0){
+                DisplayBoard();
+                Card carte=player2.Play(0);
+                ActivePower(player2,player1,carte);
+            }else{
+                System.out.println("Player 2 n'a plus de cartes dans sa main, il passe son tour");
+            }
+
 
 
         }
@@ -136,13 +146,13 @@ public class Board {
     }
 
     private void DisplayBoard(){
-        System.out.println("Main joueur 1:");
+        System.out.println("Main joueur 1, "+player1.getHand().size()+" cartes :");
         for(Card carte : player1.getHand()){
             System.out.print(carte);
             System.out.print(" / ");
         }
         System.out.println("");
-        System.out.println("Main joueur 2:");
+        System.out.println("Main joueur 2, "+player2.getHand().size()+" cartes :");
         for(Card carte : player2.getHand()){
             System.out.print(carte);
             System.out.print(" / ");

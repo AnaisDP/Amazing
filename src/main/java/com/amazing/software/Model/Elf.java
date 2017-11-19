@@ -12,13 +12,7 @@ public class Elf extends Race {
     }
     @Override
     public void Power(Player p1,Player p2, Stack<Card> Deck, int index){
-        if(p1.getBoard()==null){
-
-        }
-        else{
-            Card card=p1.getBoard().get(index);
-            card.getRace().Power(p1,p2,Deck,index);
-        }
-
+        Card card=p1.getBoard().get(index);
+        card.getRace().Power(p1,p2,Deck,index);
     }
 }
