@@ -107,6 +107,7 @@ public class Board {
             System.out.println("Jouez une carte :");
             int cardPlayedP1 = reader.nextInt();
             Card carte=player1.Play(cardPlayedP1);
+            DisplayBoard();
             ActivePower(player1,player2,carte);
             DisplayBoard();
 
@@ -121,6 +122,16 @@ public class Board {
 
         }
         System.out.println("Fin du jeu !");
+        if(player1.getPopulation()>player2.getPopulation())
+        {
+            System.out.println("Player 1 wins !");
+        }
+        else if(player1.getPopulation()<player2.getPopulation()){
+            System.out.println("Player 2 wins !");
+        }
+        else{
+            System.out.println("It's a draw !");
+        }
         reader.close();
     }
 
