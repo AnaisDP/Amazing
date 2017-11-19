@@ -16,16 +16,17 @@ public class Board {
         this.player1 = player1;
         this.player2 = player2;
         this.deck = new Stack<Card>();
+        Shuffle();
     }
 
     ///Initialize a shuffled deck this is the main function to generate the deck
-    public void GenerateDeck(){
+    public void Shuffle(){
         List<Card> list = GenerateADeck();
         java.util.Collections.shuffle(list);
         this.deck.addAll(list);
     }
     ///Generate a deck with all different race
-    private List<Card> GenerateADeck(){
+    public List<Card> GenerateADeck(){
         List<Card> allDeck = new ArrayList<Card>();
         //Dryad
         for(int i = 0; i < 7 ; i++){
