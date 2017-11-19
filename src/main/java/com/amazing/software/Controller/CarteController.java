@@ -1,4 +1,4 @@
-package com.amazing.software.Controller;
+/*package com.amazing.software.Controller;
 
 import com.amazing.software.Main;
 import com.amazing.software.Model.Carte;
@@ -79,10 +79,10 @@ public class CarteController extends Pane {
                 }
             }
         });
-        */
-    }
+        //*/
+    /*}
 
-    /*@Override
+    @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         //Initialize card here
         if(this.carte.getRetournee() == false){
@@ -109,7 +109,8 @@ public class CarteController extends Pane {
         else if (this.carte.getRace().getName() == "Troll"){
             this.pane.setStyle("-fx-background-color: purple;");
         }
-    }*/
+    }
 
 
     }
+*/
