@@ -39,11 +39,7 @@ public class Player {
     }
 
     public int getPopulation() {
-        return this.population;
-    }
-
-    public void setPopulation(int population) {
-        this.population = population;
+        return this.board.size();
     }
 
     public int getScore() {

@@ -62,19 +62,7 @@ public class Board {
         }
         return allDeck;
     }
-    public void ActualisationPop(){
-        int pop=0;
-        for (Card card : player1.getBoard()) {
-            pop++;
-        }
-        player1.setPopulation(pop);
-        pop=0;
-        for (Card card : player2.getBoard()) {
-            pop++;
-        }
-        player2.setPopulation(pop);
-        System.out.println(player2.getPopulation());
-    }
+
     public void ActivePower(Player playing,Player opponent,Card card){
         System.out.println("Player "+playing.toString()+" is playing a "+card.getRace().getName());
         Scanner reader = new Scanner(System.in);
@@ -112,7 +100,6 @@ public class Board {
         Scanner reader = new Scanner(System.in);  // Reading from System.in
         //Lancement de la boucle de jeu
         while(player1.getHand().size() != 0 || player2.getHand().size() != 0) {
-            ActualisationPop();
             if(deck.size() != 0) {
                 player1.Draw(this.deck);
             }
