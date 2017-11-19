@@ -50,8 +50,10 @@ public class Player {
         this.score = score;
     }
 
-    public void Draw(Stack<Card> deck){
-        hand.add(deck.pop());
+    public Card Draw(Stack<Card> deck){
+        Card card = deck.pop();
+        hand.add(card);
+        return card;
     }
 
     public Card Play(int index){
