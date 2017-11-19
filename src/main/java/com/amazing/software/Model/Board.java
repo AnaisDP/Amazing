@@ -1,5 +1,7 @@
 package com.amazing.software.Model;
 
+import com.sun.org.apache.xpath.internal.SourceTree;
+
 import java.io.Console;
 import java.util.ArrayList;
 import java.util.List;
@@ -60,7 +62,33 @@ public class Board {
         }
         return allDeck;
     }
+    public void ActivePower(Player playing,Player opponent,Card card){
+        System.out.println("Player "+playing.toString()+" is playing a "+card.getRace().getName());
+        Scanner reader = new Scanner(System.in);
+        if(card.getRace() instanceof Dryad){
+            if(opponent.getBoard().isEmpty()){}
+            else{
+                System.out.println("Quelle carte du board de l'adversaire choisissez vous de prendre ?");
+                int cardchosen = reader.nextInt();
+                card.getRace().Power(playing,opponent,this.deck,cardchosen);
+            }
 
+        }
+        else if(card.getRace() instanceof Elf){
+            if(playing.getBoard().isEmpty())
+            {
+
+            }
+            else{
+                System.out.println("Quelle carte de votre board choisissez vous de copier ?");
+                int cardchosen = reader.nextInt();
+                card.getRace().Power(playing,opponent,this.deck,cardchosen);
+            }
+        }
+        else{
+            card.getRace().Power(playing,opponent,this.deck,0);
+        }
+    }
     public void LaunchGame(){
         //Distribute 5 card to each
         while(player1.getHand().size() < 5 && player2.getHand().size() < 5){
@@ -71,20 +99,25 @@ public class Board {
         Scanner reader = new Scanner(System.in);  // Reading from System.in
         //Lancement de la boucle de jeu
         while(player1.getHand().size() != 0 || player2.getHand().size() != 0) {
-            DisplayBoard();
-            System.out.println("Jouez une carte :");
-            int cardPlayedP1 = reader.nextInt();
+
             if(deck.size() != 0) {
                 player1.Draw(this.deck);
             }
-            player1.Play(cardPlayedP1);
+            DisplayBoard();
+            System.out.println("Jouez une carte :");
+            int cardPlayedP1 = reader.nextInt();
+            Card carte=player1.Play(cardPlayedP1);
+            ActivePower(player1,player2,carte);
             DisplayBoard();
 
             //L'IA jou tjrs la première carte
             if(deck.size() != 0) {
                 player2.Draw(this.deck);
             }
-            player2.Play(0);
+            DisplayBoard();
+            carte=player2.Play(0);
+            ActivePower(player2,player1,carte);
+
 
         }
         System.out.println("Fin du jeu !");
@@ -94,16 +127,28 @@ public class Board {
     private void DisplayBoard(){
         System.out.println("Main joueur 1:");
         for(Card carte : player1.getHand()){
-            System.out.println(carte);
+            System.out.print(carte);
+            System.out.print(" / ");
         }
+        System.out.println("");
+        System.out.println("Main joueur 2:");
+        for(Card carte : player2.getHand()){
+            System.out.print(carte);
+            System.out.print(" / ");
+        }
+        System.out.println("");
         System.out.println("board joueur 1:");
         for(Card carte : player1.getBoard()){
-            System.out.println(carte);
+            System.out.print(carte);
+            System.out.print(" / ");
         }
+        System.out.println("");
         System.out.println("board joueur 2:");
         for(Card carte : player2.getBoard()){
-            System.out.println(carte);
+            System.out.print(carte);
+            System.out.print(" / ");
         }
+        System.out.println("");
     }
 }
 

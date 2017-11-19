@@ -1,5 +1,6 @@
 package com.amazing.software;
 
+import com.amazing.software.Model.Game;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -27,7 +28,7 @@ public class Main /*extends Application*/ {
 
 
     public static void main(String[] args) {
-
+        Game game=new Game();
         //launch(args);
     }
 

@@ -58,9 +58,9 @@ public class Player {
         hand.add(deck.pop());
     }
 
-    public void Play(int index){
+    public Card Play(int index){
         this.board.add(hand.get(index));
-        hand.remove(index);
+        return hand.remove(index);
     }
 
 
