@@ -18,8 +18,8 @@ public class Player {
     public Player(){
     this.board = new ArrayList<Card>();
     this.hand = new ArrayList<Card>();
-    population = 0;
-    score = 0;
+    this.population = 0;
+    this.score = 0;
     }
 
     public List<Card> getBoard() {
@@ -39,7 +39,7 @@ public class Player {
     }
 
     public int getPopulation() {
-        return this.hand.size();
+        return this.population;
     }
 
     public void setPopulation(int population) {
