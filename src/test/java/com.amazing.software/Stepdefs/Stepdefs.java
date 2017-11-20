@@ -92,8 +92,70 @@ public class Stepdefs {
             if (c.getRace() instanceof Gnome)
             {
                 c.getRace().Power(player1, player2, board.getDeck(),0);
+                break;
 
             }
         }
+    }
+
+    @Given("^Player1 has a korrigan$")
+    public  void  SetKorrignan() throws Throwable{
+        Race kor = new Korrigan();
+        Card korrigan = new Card(kor);
+        player1.getHand().add(korrigan);
+    }
+
+    @When("^Player1 use korrigan$")
+    public void UseKorrrigan() throws Throwable {
+        for (Card c:player1.getHand()) {
+            if (c.getRace() instanceof Korrigan)
+            {
+                c.getRace().Power(player1, player2, board.getDeck(),0);
+                break;
+
+            }
+        }
+    }
+
+    @Given("^Player1 has (\\d+) cards on his board$")
+    public void Player1Board(int nbCardBoard) throws Throwable{
+        player1 = new Player();
+        assertEquals(nbCardBoard+" card on player 1 board",nbCardBoard,player1.getBoard().size());
+    }
+
+    @Given("^Player2 has (\\d+) cards on his board$")
+    public void SetPlayer2Board(int nbCardBoard)throws Throwable{
+        player2 = new Player();
+        board = new Board(player1,player2);
+        while (player2.getBoard().size()<nbCardBoard) {
+            Card c1 = new Card(new Gobelin());
+            player2.getBoard().add(c1);
+        }
+        assertEquals(nbCardBoard+" card on player 2 board",nbCardBoard,player2.getBoard().size());
+
+    }
+
+    @Given("^Player1 has a Troll$")
+    public  void  SetTroll() throws Throwable{
+        Race tro = new Troll();
+        Card troll = new Card(tro);
+        player1.getHand().add(troll);
+    }
+
+    @When("^Player1 use Troll$")
+    public void UseTroll() throws Throwable {
+        for (Card c:player1.getHand()) {
+            if (c.getRace() instanceof Troll)
+            {
+                c.getRace().Power(player1, player2, board.getDeck(),0);
+                break;
+
+            }
+        }
+    }
+
+    @Then("^Player2 has (\\d+) card on his board$")
+    public void Player2Board(int nbCardBoard) throws Throwable{
+        assertEquals(nbCardBoard+" card on player 2 board",nbCardBoard,player2.getBoard().size());
     }
 }
