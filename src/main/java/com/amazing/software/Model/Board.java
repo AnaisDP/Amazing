@@ -85,7 +85,10 @@ public class Board {
                 int cardchosen = reader.nextInt();
                 if(playing.getBoard().get(cardchosen).getRace() instanceof Elf){
                     ActivePower(playing,opponent,playing.getBoard().get(cardchosen));
-                }else{
+                }else if(playing.getBoard().get(cardchosen).getRace() instanceof Dryad){
+                    ActivePower(playing,opponent,playing.getBoard().get(cardchosen));
+                }
+                else{
                     card.getRace().Power(playing,opponent,this.deck,cardchosen);
                 }
 
