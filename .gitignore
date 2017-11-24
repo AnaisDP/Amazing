@@ -5,3 +5,6 @@ out
 gen
 target/
 .idea/libraries/
+.idea
+.classpath
+.project
