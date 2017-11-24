@@ -32,33 +32,12 @@ public class Board {
         List<Card> allDeck = new ArrayList<Card>();
         //Dryad
         for(int i = 0; i < 7 ; i++){
-            Card card = new Card(new Dryad());
-            allDeck.add(card);
-        }
-        //Elf
-        for(int i = 0; i < 7 ; i++){
-            Card card = new Card(new Elf());
-            allDeck.add(card);
-        }
-        //Gnome
-        for(int i = 0; i < 7 ; i++){
-            Card card = new Card(new Gnome());
-            allDeck.add(card);
-        }
-        //Gobelin
-        for(int i = 0; i < 7 ; i++){
-            Card card = new Card(new Gobelin());
-            allDeck.add(card);
-        }
-        //Korrigan
-        for(int i = 0; i < 7 ; i++){
-            Card card = new Card(new Korrigan());
-            allDeck.add(card);
-        }
-        //Troll
-        for(int i = 0; i < 7 ; i++) {
-            Card card = new Card(new Troll());
-            allDeck.add(card);
+            allDeck.add(new Card(new Dryad()));
+            allDeck.add(new Card(new Gobelin()));
+            allDeck.add(new Card(new Troll()));
+            allDeck.add(new Card(new Korrigan()));
+            allDeck.add(new Card(new Gnome()));
+            allDeck.add(new Card(new Elf()));
         }
         return allDeck;
     }
