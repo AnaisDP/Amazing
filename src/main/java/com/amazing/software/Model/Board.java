@@ -13,6 +13,10 @@ public class Board {
     private Player player2;
     private Stack<Card> deck;
 
+    public Stack<Card> getDeck() {
+        return deck;
+    }
+
     public Board(Player player1, Player player2) /*throws Exception*/{
         this.player1 = player1;
         this.player2 = player2;
@@ -93,12 +97,18 @@ public class Board {
             card.getRace().Power(playing,opponent,this.deck,0);
         }
     }
-    public void LaunchGame(){
-        //Distribute 5 card to each
+    public void DistributeCards(){
+
         while(player1.getHand().size() < 5 && player2.getHand().size() < 5){
             player1.Draw(this.deck);
             player2.Draw(this.deck);
         }
+
+    }
+    public void LaunchGame(){
+        //Distribute 5 card to each
+        Shuffle();
+        DistributeCards();
 
         Scanner reader = new Scanner(System.in);  // Reading from System.in
         //Lancement de la boucle de jeu
