@@ -66,37 +66,6 @@ public class Board {
         return allDeck;
     }
 
-    public void ActivePower(Player playing,Player opponent,Card card){
-        System.out.println("Player "+playing.toString()+" is playing a "+card.getRace().getName());
-        Scanner reader = new Scanner(System.in);
-        if(card.getRace() instanceof Dryad){
-            if(opponent.getBoard().isEmpty()){}
-            else{
-                System.out.println("Quelle carte du board de l'adversaire choisissez vous de prendre ?");
-                int cardchosen = reader.nextInt();
-                card.getRace().Power(playing,opponent,this.deck,cardchosen);
-            }
-        }
-        else if(card.getRace() instanceof Elf){
-            if(playing.getBoard().size()==1) {}
-            else{
-                System.out.println("Quelle carte de votre board choisissez vous de copier ?");
-                int cardchosen = reader.nextInt();
-                if(playing.getBoard().get(cardchosen).getRace() instanceof Elf){
-                    ActivePower(playing,opponent,playing.getBoard().get(cardchosen));
-                }else if(playing.getBoard().get(cardchosen).getRace() instanceof Dryad){
-                    ActivePower(playing,opponent,playing.getBoard().get(cardchosen));
-                }
-                else{
-                    card.getRace().Power(playing,opponent,this.deck,cardchosen);
-                }
-
-            }
-        }
-        else{
-            card.getRace().Power(playing,opponent,this.deck,0);
-        }
-    }
     public void DistributeCards(){
 
         while(player1.getHand().size() < 5 && player2.getHand().size() < 5){
@@ -122,7 +91,7 @@ public class Board {
                 int cardPlayedP1 = reader.nextInt();
                 Card carte=player1.Play(cardPlayedP1);
                 DisplayBoard();
-                ActivePower(player1,player2,carte);
+                carte.getRace().Power(player1,player2,deck,0);
             }else{
                 System.out.println("Vous n'avez plus de cartes dans votre main, vous passez votre tour");
             }
@@ -135,7 +104,7 @@ public class Board {
             if(player2.getHand().size()!=0){
                 DisplayBoard();
                 Card carte=player2.Play(0);
-                ActivePower(player2,player1,carte);
+                carte.getRace().Power(player2,player1,deck,0);
             }else{
                 System.out.println("Player 2 n'a plus de cartes dans sa main, il passe son tour");
             }

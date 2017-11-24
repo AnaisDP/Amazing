@@ -1,6 +1,7 @@
 package com.amazing.software.Model;
 
 import java.util.List;
+import java.util.Scanner;
 import java.util.Stack;
 
 public class Dryad extends Race {
@@ -10,6 +11,13 @@ public class Dryad extends Race {
     }
     @Override
     public void Power(Player p1, Player p2, Stack<Card> Deck, int index){
-            p1.getBoard().add(p2.getBoard().remove(index));
+        Scanner reader=new Scanner(System.in);
+        if(p2.getBoard().isEmpty()){}
+        else{
+            System.out.println("Quelle carte du board de l'adversaire choisissez vous de prendre ?");
+            int cardchosen = reader.nextInt();
+            p1.getBoard().add(p2.getBoard().remove(cardchosen));
+        }
+
     }
 }
