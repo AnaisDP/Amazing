@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3d037c88-1a76-492f-8287-9c9f476fbfb3" name="Default" comment="">
+    <list default="true" id="3d037c88-1a76-492f-8287-9c9f476fbfb3" name="Default" comment="Merge branch 'ben' of https://github.com/AnaisDP/Amazing&#10;&#10;# Conflicts:&#10;#&#9;.idea/compiler.xml&#10;#&#9;.idea/misc.xml&#10;#&#9;.idea/modules.xml&#10;#&#9;Amazing.iml&#10;#&#9;src/main/java/com/amazing/software/Model/Dryad.java&#10;#&#9;src/main/java/com/amazing/software/Model/Gnome.java&#10;#&#9;src/main/java/com/amazing/software/Model/Gobelin.java&#10;#&#9;src/main/java/com/amazing/software/Model/Korrigan.java&#10;#&#9;src/main/java/com/amazing/software/Model/Troll.java&#10;#&#9;src/test/java/com.amazing.software/Stepdefs/Stepdefs.java&#10;#&#9;src/test/resources/com.amazing.software/features/Conjured.feature">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Amazing.iml" afterPath="$PROJECT_DIR$/Amazing.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Board.java" afterPath="$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Board.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Dryad.java" afterPath="$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Dryad.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Race.java" afterPath="$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Race.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -40,8 +41,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="290">
+              <caret line="24" column="26" lean-forward="true" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -52,11 +53,34 @@
       <file leaf-file-name="Board.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Board.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1230">
-              <caret line="90" column="30" lean-forward="false" selection-start-line="89" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
+            <state relative-caret-position="141">
+              <caret line="50" column="93" lean-forward="false" selection-start-line="50" selection-start-column="93" selection-end-line="50" selection-end-column="93" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Race.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Race.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+              <folding>
+                <element signature="e#166#167#0" expanded="true" />
+                <element signature="e#193#194#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Gnome.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Gnome.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -71,13 +95,58 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Stepdefs.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/test/java/com.amazing.software/Stepdefs/Stepdefs.java">
+      <file leaf-file-name="BoardController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Controller/BoardController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1320">
-              <caret line="197" column="23" lean-forward="false" selection-start-line="197" selection-start-column="23" selection-end-line="197" selection-end-column="23" />
+            <state relative-caret-position="-781">
+              <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1511529318000" expanded="true" signature="670:1165" ph="attributs" />
+                <marker date="1511529318000" expanded="true" signature="1213:1333" ph="{...}" />
+                <marker date="1511529318000" expanded="true" signature="1340:3079" ph="méthodes" />
+                <marker date="1511529318000" expanded="true" signature="1470:1597" ph="{...}" />
+                <marker date="1511529318000" expanded="true" signature="1683:2611" ph="{...}" />
+                <marker date="1511529318000" expanded="true" signature="1726:1732" ph="&lt;~&gt;" />
+                <marker date="1511529318000" expanded="true" signature="2733:2825" ph="{...}" />
+                <marker date="1511529318000" expanded="true" signature="2912:3063" ph="{...}" />
+                <marker date="1511529318000" expanded="true" signature="3085:3222" ph="//..." />
+                <marker date="1511529318000" expanded="true" signature="3393:3448" ph="{...}" />
+                <marker date="1511529318000" expanded="true" signature="3454:8460" ph="InitMethods" />
+                <marker date="1511529318000" expanded="true" signature="3506:3558" ph="{...}" />
+                <marker date="1511529318000" expanded="true" signature="3589:3955" ph="{...}" />
+                <marker date="1511529318000" expanded="true" signature="3986:4355" ph="{...}" />
+                <marker date="1511529318000" expanded="true" signature="4386:8444" ph="{...}" />
+                <marker date="1511529318000" expanded="true" signature="4483:7016" ph="Listener player1 handProperty" />
+                <marker date="1511529318000" expanded="true" signature="4601:6994" ph="{...}" />
+                <marker date="1511529318000" expanded="true" signature="4685:6984" ph="{...}" />
+                <marker date="1511529318000" expanded="true" signature="5468:6458" ph="setMouseClick" />
+                <marker date="1511529318000" expanded="true" signature="5593:6416" ph="{...}" />
+                <marker date="1511529318000" expanded="true" signature="5706:6386" ph="{...}" />
+                <marker date="1511529318000" expanded="true" signature="7025:8188" ph="Listener player1 boardProperty" />
+                <marker date="1511529318000" expanded="true" signature="7145:8166" ph="{...}" />
+                <marker date="1511529318000" expanded="true" signature="7229:8156" ph="{...}" />
+                <marker date="1511529318000" expanded="true" signature="8197:8438" ph="pioche" />
+                <marker date="1511529318000" expanded="true" signature="8282:8416" ph="{...}" />
+                <marker date="1511529318000" expanded="true" signature="8354:8373" ph=" { " />
+                <marker date="1511529318000" expanded="true" signature="8392:8406" ph=" }" />
+                <marker date="1511529318000" expanded="true" signature="8466:8677" ph="Get/Set" />
+                <marker date="1511529318000" expanded="true" signature="8513:8524" ph=" { " />
+                <marker date="1511529318000" expanded="true" signature="8539:8545" ph=" }" />
+                <marker date="1511529318000" expanded="true" signature="8576:8587" ph=" { " />
+                <marker date="1511529318000" expanded="true" signature="8602:8608" ph=" }" />
+                <marker date="1511529318000" expanded="true" signature="8643:8661" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Stepdefs.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/test/java/com.amazing.software/Stepdefs/Stepdefs.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1053">
+              <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+              <folding>
                 <element signature="method#CreatePlayer#0;class#Stepdefs#0" expanded="false" />
                 <element signature="method#NumberOfCard#0;class#Stepdefs#0" expanded="false" />
                 <element signature="method#LaunchGame#0;class#Stepdefs#0" expanded="false" />
@@ -101,38 +170,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="210">
-              <caret line="14" column="24" lean-forward="false" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BoardController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Controller/BoardController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2985">
-              <caret line="199" column="29" lean-forward="false" selection-start-line="199" selection-start-column="29" selection-end-line="199" selection-end-column="29" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CarteController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Controller/CarteController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#4012#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Card.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Card.java">
           <provider selected="true" editor-type-id="text-editor">
@@ -146,8 +183,8 @@
       <file leaf-file-name="Dryad.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Dryad.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+            <state relative-caret-position="210">
+              <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -177,7 +214,7 @@
     <push-targets>
       <push-target-info target-remote="origin" target-branch="Oussama" repo="$PROJECT_DIR$" source="V2" />
       <push-target-info target-remote="origin" target-branch="Oussama" repo="$PROJECT_DIR$" source="thomas" />
-      <push-target-info target-remote="origin" target-branch="ben" repo="$PROJECT_DIR$" source="master" />
+      <push-target-info target-remote="origin" target-branch="jean" repo="$PROJECT_DIR$" source="master" />
     </push-targets>
   </component>
   <component name="GradleLocalSettings">
@@ -188,9 +225,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Race.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Game.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/amazing/software/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Gnome.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Troll.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Gobelin.java" />
@@ -203,7 +238,9 @@
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/test/resources/com.amazing.software/features/Game.feature" />
         <option value="$PROJECT_DIR$/src/test/java/com.amazing.software/Stepdefs/Stepdefs.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/amazing/software/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Board.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Race.java" />
       </list>
     </option>
   </component>
@@ -253,37 +290,34 @@
               <item name="Amazing" type="b2602c69:ProjectViewProjectNode" />
               <item name="Amazing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Amazing" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Amazing" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Amazing" type="b2602c69:ProjectViewProjectNode" />
               <item name="Amazing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="Stepdefs" type="462c0819:PsiDirectoryNode" />
+              <item name="software" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Amazing" type="b2602c69:ProjectViewProjectNode" />
               <item name="Amazing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="software" type="462c0819:PsiDirectoryNode" />
+              <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Amazing" type="b2602c69:ProjectViewProjectNode" />
               <item name="Amazing" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="test" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
-              <item name="features" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="software" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="Amazing" type="b2602c69:ProjectViewProjectNode" />
@@ -685,9 +719,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="Feature__Game - 2017.11.23 at 14h 51m 15s.xml">
-      <configuration name="Feature: Game" configurationId="CucumberJavaRunConfigurationType" />
-    </history-entry>
     <history-entry file="Feature__Game - 2017.11.23 at 14h 53m 08s.xml">
       <configuration name="Feature: Game" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
@@ -698,6 +729,9 @@
       <configuration name="Feature: Game" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
     <history-entry file="Feature__Game - 2017.11.24 at 11h 26m 21s.xml">
+      <configuration name="Feature: Game" configurationId="CucumberJavaRunConfigurationType" />
+    </history-entry>
+    <history-entry file="Feature__Game - 2017.11.24 at 14h 21m 38s.xml">
       <configuration name="Feature: Game" configurationId="CucumberJavaRunConfigurationType" />
     </history-entry>
     <history-entry file="com_amazing_software_Model_in_Amazing - 2017.11.24 at 11h 15m 12s.xml">
@@ -721,18 +755,18 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.49570355" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32859176" sideWeight="0.4925955" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40398294" sideWeight="0.29072487" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40398294" sideWeight="0.29462197" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40398294" sideWeight="0.7092751" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40398294" sideWeight="0.705378" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.48260212" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.4935553" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30007794" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30007794" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -740,12 +774,32 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934534" sideWeight="0.4924357" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40398294" sideWeight="0.29072487" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39934534" sideWeight="0.4924357" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.49570355" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Coverage" active="true" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.07560405" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.40398294" sideWeight="0.7092751" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289689" sideWeight="0.48260212" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295711" sideWeight="0.4935553" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30007794" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -982,28 +1036,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="28" column="0" lean-forward="false" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/resources/com.amazing.software/features/Conjured.feature" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Game.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Race.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1047,8 +1084,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Player.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="97">
-          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+        <state relative-caret-position="180">
+          <caret line="19" column="34" lean-forward="false" selection-start-line="19" selection-start-column="34" selection-end-line="19" selection-end-column="34" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1056,13 +1094,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="16" column="1" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Gnome.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="30" lean-forward="false" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
         </state>
       </provider>
     </entry>
@@ -1075,9 +1106,45 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Controller/BoardController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2985">
-          <caret line="199" column="29" lean-forward="false" selection-start-line="199" selection-start-column="29" selection-end-line="199" selection-end-column="29" />
-          <folding />
+        <state relative-caret-position="-781">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1511529318000" expanded="true" signature="670:1165" ph="attributs" />
+            <marker date="1511529318000" expanded="true" signature="1213:1333" ph="{...}" />
+            <marker date="1511529318000" expanded="true" signature="1340:3079" ph="méthodes" />
+            <marker date="1511529318000" expanded="true" signature="1470:1597" ph="{...}" />
+            <marker date="1511529318000" expanded="true" signature="1683:2611" ph="{...}" />
+            <marker date="1511529318000" expanded="true" signature="1726:1732" ph="&lt;~&gt;" />
+            <marker date="1511529318000" expanded="true" signature="2733:2825" ph="{...}" />
+            <marker date="1511529318000" expanded="true" signature="2912:3063" ph="{...}" />
+            <marker date="1511529318000" expanded="true" signature="3085:3222" ph="//..." />
+            <marker date="1511529318000" expanded="true" signature="3393:3448" ph="{...}" />
+            <marker date="1511529318000" expanded="true" signature="3454:8460" ph="InitMethods" />
+            <marker date="1511529318000" expanded="true" signature="3506:3558" ph="{...}" />
+            <marker date="1511529318000" expanded="true" signature="3589:3955" ph="{...}" />
+            <marker date="1511529318000" expanded="true" signature="3986:4355" ph="{...}" />
+            <marker date="1511529318000" expanded="true" signature="4386:8444" ph="{...}" />
+            <marker date="1511529318000" expanded="true" signature="4483:7016" ph="Listener player1 handProperty" />
+            <marker date="1511529318000" expanded="true" signature="4601:6994" ph="{...}" />
+            <marker date="1511529318000" expanded="true" signature="4685:6984" ph="{...}" />
+            <marker date="1511529318000" expanded="true" signature="5468:6458" ph="setMouseClick" />
+            <marker date="1511529318000" expanded="true" signature="5593:6416" ph="{...}" />
+            <marker date="1511529318000" expanded="true" signature="5706:6386" ph="{...}" />
+            <marker date="1511529318000" expanded="true" signature="7025:8188" ph="Listener player1 boardProperty" />
+            <marker date="1511529318000" expanded="true" signature="7145:8166" ph="{...}" />
+            <marker date="1511529318000" expanded="true" signature="7229:8156" ph="{...}" />
+            <marker date="1511529318000" expanded="true" signature="8197:8438" ph="pioche" />
+            <marker date="1511529318000" expanded="true" signature="8282:8416" ph="{...}" />
+            <marker date="1511529318000" expanded="true" signature="8354:8373" ph=" { " />
+            <marker date="1511529318000" expanded="true" signature="8392:8406" ph=" }" />
+            <marker date="1511529318000" expanded="true" signature="8466:8677" ph="Get/Set" />
+            <marker date="1511529318000" expanded="true" signature="8513:8524" ph=" { " />
+            <marker date="1511529318000" expanded="true" signature="8539:8545" ph=" }" />
+            <marker date="1511529318000" expanded="true" signature="8576:8587" ph=" { " />
+            <marker date="1511529318000" expanded="true" signature="8602:8608" ph=" }" />
+            <marker date="1511529318000" expanded="true" signature="8643:8661" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -1103,19 +1170,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Dryad.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        <state relative-caret-position="210">
+          <caret line="15" column="1" lean-forward="false" selection-start-line="15" selection-start-column="1" selection-end-line="15" selection-end-column="1" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Board.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1230">
-          <caret line="90" column="30" lean-forward="false" selection-start-line="89" selection-start-column="30" selection-end-line="90" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1137,10 +1194,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/test/java/com.amazing.software/Stepdefs/Stepdefs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="197" column="23" lean-forward="false" selection-start-line="197" selection-start-column="23" selection-end-line="197" selection-end-column="23" />
+        <state relative-caret-position="-1053">
+          <caret line="9" column="0" lean-forward="true" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="true" />
             <element signature="method#CreatePlayer#0;class#Stepdefs#0" expanded="false" />
             <element signature="method#NumberOfCard#0;class#Stepdefs#0" expanded="false" />
             <element signature="method#LaunchGame#0;class#Stepdefs#0" expanded="false" />
@@ -1159,6 +1215,45 @@
             <element signature="method#Player2Board#0;class#Stepdefs#0" expanded="false" />
             <element signature="method#SetDryad#0;class#Stepdefs#0" expanded="false" />
             <element signature="method#UseDryad#0;class#Stepdefs#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="24" column="26" lean-forward="true" selection-start-line="24" selection-start-column="26" selection-end-line="24" selection-end-column="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Board.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="141">
+          <caret line="50" column="93" lean-forward="false" selection-start-line="50" selection-start-column="93" selection-end-line="50" selection-end-column="93" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Gnome.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/amazing/software/Model/Race.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="e#166#167#0" expanded="true" />
+            <element signature="e#193#194#0" expanded="true" />
           </folding>
         </state>
       </provider>
