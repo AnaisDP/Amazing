@@ -1,4 +1,4 @@
-/*package com.amazing.software.Controller;
+package com.amazing.software.Controller;
 
 import com.amazing.software.Model.*;
 import javafx.beans.property.SimpleObjectProperty;
@@ -32,6 +32,8 @@ public class BoardController implements Initializable {
     private GridPane boardUiP1; //Ui pour le terrain du joueur 1
     @FXML
     private GridPane boardUiP2; //Ui pour le terrain du joueur 2
+
+    //Variable pour le jeu
     private Player player1;
     private Player player2;
     private Stack<Card> deck;
@@ -42,94 +44,91 @@ public class BoardController implements Initializable {
         this.player1 = new Player();
         this.player2 = new Player();
         this.deck = new Stack<Card>();
+        Shuffle();
     }
 
 
     //region méthodes
     ///Initialize a shuffled deck this is the main function to generate the deck
-    private void GenerateDeck(){
+    public void Shuffle(){
         List<Card> list = GenerateADeck();
         java.util.Collections.shuffle(list);
         this.deck.addAll(list);
     }
     ///Generate a deck with all different race
-    private List<Card> GenerateADeck(){
-        List<Card> myList = new ArrayList<Card>();
+    public List<Card> GenerateADeck(){
+        List<Card> allDeck = new ArrayList<Card>();
         //Dryad
         for(int i = 0; i < 7 ; i++){
             Card card = new Card(new Dryad());
-            myList.add(card);
+            allDeck.add(card);
         }
         //Elf
         for(int i = 0; i < 7 ; i++){
             Card card = new Card(new Elf());
-            myList.add(card);
+            allDeck.add(card);
         }
         //Gnome
         for(int i = 0; i < 7 ; i++){
             Card card = new Card(new Gnome());
-            myList.add(card);
+            allDeck.add(card);
         }
         //Gobelin
         for(int i = 0; i < 7 ; i++){
             Card card = new Card(new Gobelin());
-            myList.add(card);
+            allDeck.add(card);
         }
         //Korrigan
         for(int i = 0; i < 7 ; i++){
             Card card = new Card(new Korrigan());
-            myList.add(card);
+            allDeck.add(card);
         }
         //Troll
         for(int i = 0; i < 7 ; i++) {
             Card card = new Card(new Troll());
-            myList.add(card);
+            allDeck.add(card);
         }
-        return myList;
+        return allDeck;
     }
 
-    ///Distribute 5cards to the player from the deck, used to launch the game
-    public  void Distribute(Player player){
-       while(player.getHand().size()<5){
-           player.Draw(this.deck);
-       }
-    }
+    public void DistributeCards() throws Exception{
+        while(player1.getHand().size() < 5 || player2.getHand().size() < 5){
+            //Creation d'une vue carte contronller
+            CardController cardController = new CardController(player1.Draw(this.deck));
+            //Création d'une nouvelle colonne dans le GridHandUi
+            ColumnConstraints columnConstraints = new ColumnConstraints();
+            handUiP1.getColumnConstraints().add(columnConstraints);
+            //Bind de la CC au GridHandUi
+            handUiP1.add(cardController.getPane(),player1.getHand().size(),0); //L'index de la colonne est donnée par la taille de la main
 
+            //TODO Do the same for P2
+        }
+    }
     ///First function to call in the main
     public void StartGame()throws Exception{
-        GenerateDeck();
-        Distribute(player1);
-        Distribute(player2);
-        //System.out.println(handUiP1.getChildren().size());
-
+        DistributeCards();
+        //TODO Function to distribute 5card to each player on UI
     }
     //endregion
-
-    //TODO Listener sur main du player2
-    //TODO Listener sur terrain des players
-    //TODO Event sur les listeners créé
-    //TODO Pioche
 
     //Cette fonction est appellé lorsque que BoardController est completement initialisé
     @Override
     public void initialize(URL location, ResourceBundle resources){
-        gridPaneInit();
-        InitListener();
+        GridsPanesInit();
     }
 
     //region InitMethods
-    private void gridPaneInit(){
+    private void GridsPanesInit(){
         InitHandUi();
         InitBoardUi();
     }
-
     private void InitHandUi(){
 
         //Space between 2 card
         this.handUiP1.setVgap(15);
         this.handUiP1.setHgap(15);
         this.handUiP1.setAlignment(Pos.CENTER);
-        //Initialisation du GridPane avec 1 ligne 1 colonne (handPlayer vide)
+        //Initialisation du GridPane avec 1 ligne (handPlayer vide)
         final RowConstraints rowConstraints = new RowConstraints();
         this.handUiP1.getRowConstraints().add(rowConstraints);
     }
@@ -138,93 +137,11 @@ public class BoardController implements Initializable {
         this.boardUiP1.setVgap(15);
         this.boardUiP1.setHgap(15);
         this.boardUiP1.setAlignment(Pos.CENTER);
-        //Initialisation du GridPane avec 1 ligne 1 colonne (handPlayer vide)
+        //Initialisation du GridPane avec 1 ligne (boardPlayer vide)
         final RowConstraints rowConstraints = new RowConstraints();
         this.boardUiP1.getRowConstraints().add(rowConstraints);
     }
-    public void InitListener(){
-
-        //Ajout de listeners sur les propriété hand et terrain des Player1 et player2
-        //region Listener player1 handProperty
-        this.player1.handProperty().addListener(new ListChangeListener<Card>() {
-            @Override
-            public void onChanged(Change<? extends Card> c) {
-                while (c.next()){
-                    if(c.wasAdded()){
-                        System.out.println("Card +"+c.toString()+" was add at "+c.getFrom());
-                        try {
-                            final CardController CardController = new CardController(player1.getHand().get(c.getFrom()));
-                            ColumnConstraints columnConstraints = new ColumnConstraints();
-                            handUiP1.getColumnConstraints().add(columnConstraints);
-                            handUiP1.add(CardController.getPane(),c.getFrom(),0);
-                            handUiP1.setAlignment(Pos.CENTER);
-                            System.out.println("Card "+ c.toString()+ " was add in P1Grid at pos : "+c.getFrom());
-                            //region setMouseClick
-                            CardController.getPane().setOnMouseClicked(new EventHandler<MouseEvent>() {
-                                @Override
-                                public void handle(MouseEvent event) {
-                                    System.out.println("Card "+CardController.toString()+" clicked");
-                                    for(int i = 0 ; i < player1.getHand().size() ; i++){
-                                        if(player1.getHand().get(i) == CardController.getCard()){
-                                            player1.getBoard().add(player1.getHand().get(i));
-                                            player1.getHand().remove(player1.getHand().get(i));
-                                            System.out.println("Placement affected");
-                                        }
-                                    }
-                                }
-                            });
-                            //endregion
-                        }
-                        catch (Exception e)
-                        {
-                            System.out.println(e.toString());
-                        }
-
-                    }
-                    if(c.wasRemoved()){
-                        System.out.println("Card +"+c.toString()+" was removed at "+c.getFrom());
-                        handUiP1.getChildren().remove(c.getFrom());
-                        handUiP1.setAlignment(Pos.CENTER);
-                    }
-                }
-            }
-        });
-        //endregion
-        //region Listener player1 boardProperty
-        this.player1.boardProperty().addListener(new ListChangeListener<Card>() {
-            @Override
-            public void onChanged(Change<? extends Card> c) {
-                while(c.next()){
-                    if(c.wasAdded()){
-                        System.out.println("Card +"+c.toString()+" was add at "+c.getFrom());
-                        try {
-                            CardController CardController = new CardController(player1.getBoard().get(c.getFrom()));
-                            ColumnConstraints columnConstraints = new ColumnConstraints();
-                            boardUiP1.getColumnConstraints().add(columnConstraints);
-                            boardUiP1.add(CardController.getPane(),c.getFrom(),0);
-                            System.out.println("Card "+ c.toString()+ " was add in P1Board at pos : "+c.getFrom());
-                        }
-                        catch (Exception e)
-                        {
-                            System.out.println(e.toString());
-                        }
-
-                    }
-                }
-            }
-        });
-        //endregion
-        //region pioche
-        this.pioche.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                player1.Draw(deck);
-            }
-        });
-        //endregion
-    }
     //endregion
-
     //region Get/Set
     public Player getPlayer1() {
         return player1;
@@ -235,4 +152,3 @@ public class BoardController implements Initializable {
     public GridPane getHandUiP1() {return handUiP1;}
     //endregion
 }
-*/

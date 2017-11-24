@@ -1,7 +1,6 @@
 # Created by .ignore support plugin (hsz.mobi)
 # IntelliJ project files
-Amazing.iml
-out
-gen
+#.idea/
+#Amazing.iml
 target/
 .idea/libraries/
