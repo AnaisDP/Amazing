@@ -71,25 +71,27 @@ public class Board {
         System.out.println("Player "+playing.toString()+" is playing a "+card.getRace().getName());
         Scanner reader = new Scanner(System.in);
         if(card.getRace() instanceof Dryad){
-            if(opponent.getBoard().isEmpty()){}
+            if(opponent.getBoard().isEmpty()){
+                System.out.println("Aucune carte de disponible dans le Board adverse.");
+            }
             else{
                 System.out.println("Quelle carte du board de l'adversaire choisissez vous de prendre ?");
-                int cardchosen = reader.nextInt();
-                card.getRace().Power(playing,opponent,this.deck,cardchosen);
+                int cardChosen = reader.nextInt();
+                card.getRace().Power(playing,opponent,this.deck,cardChosen);
             }
         }
         else if(card.getRace() instanceof Elf){
             if(playing.getBoard().size()==1) {}
             else{
                 System.out.println("Quelle carte de votre board choisissez vous de copier ?");
-                int cardchosen = reader.nextInt();
-                if(playing.getBoard().get(cardchosen).getRace() instanceof Elf){
-                    ActivePower(playing,opponent,playing.getBoard().get(cardchosen));
-                }else if(playing.getBoard().get(cardchosen).getRace() instanceof Dryad){
-                    ActivePower(playing,opponent,playing.getBoard().get(cardchosen));
+                int cardChosen = reader.nextInt();
+                if(playing.getBoard().get(cardChosen).getRace() instanceof Elf){
+                    ActivePower(playing,opponent,playing.getBoard().get(cardChosen));
+                }else if(playing.getBoard().get(cardChosen).getRace() instanceof Dryad){
+                    ActivePower(playing,opponent,playing.getBoard().get(cardChosen));
                 }
                 else{
-                    card.getRace().Power(playing,opponent,this.deck,cardchosen);
+                    card.getRace().Power(playing,opponent,this.deck,cardChosen);
                 }
 
             }
