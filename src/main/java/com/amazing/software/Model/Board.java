@@ -30,7 +30,7 @@ public class Board {
     ///Generate a deck with all different race
     public List<Card> GenerateADeck(){
         List<Card> allDeck = new ArrayList<Card>();
-        //Dryad
+        //generate
         for(int i = 0; i < 7 ; i++){
             allDeck.add(new Card(new Dryad()));
             allDeck.add(new Card(new Gobelin()));
