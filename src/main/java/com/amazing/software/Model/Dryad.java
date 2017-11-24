@@ -12,12 +12,10 @@ public class Dryad extends Race {
     @Override
     public void Power(Player p1, Player p2, Stack<Card> Deck, int index){
         Scanner reader=new Scanner(System.in);
-        if(p2.getBoard().isEmpty()){}
-        else{
+        if(!p2.getBoard().isEmpty()){
             System.out.println("Quelle carte du board de l'adversaire choisissez vous de prendre ?");
             int cardchosen = reader.nextInt();
             p1.getBoard().add(p2.getBoard().remove(cardchosen));
         }
-
     }
 }

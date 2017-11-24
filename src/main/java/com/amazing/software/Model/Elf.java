@@ -14,10 +14,13 @@ public class Elf extends Race {
 
     @Override
     public void Power(Player p1, Player p2, Stack<Card> Deck, int index) {
-        Scanner reader = new Scanner(System.in);
-        System.out.println("Quelle carte de votre board choisissez vous de copier ?");
-        int cardchosen = reader.nextInt();
-        p1.getBoard().get(cardchosen).getRace().Power(p1, p2, Deck, index);
+        if(p1.getBoard().size()==1){
+            Scanner reader = new Scanner(System.in);
+            System.out.println("Quelle carte de votre board choisissez vous de copier ?");
+            int cardchosen = reader.nextInt();
+            p1.getBoard().get(cardchosen).getRace().Power(p1, p2, Deck, index);
+        }
+
 
     }
 }
