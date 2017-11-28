@@ -56,37 +56,16 @@ public class BoardController implements Initializable {
         this.deck.addAll(list);
     }
     ///Generate a deck with all different race
-    public List<Card> GenerateADeck(){
-        List<Card> allDeck = new ArrayList<Card>();
+    public List<Card> GenerateADeck() {
+        List<Card> allDeck = new ArrayList<>();
         //Dryad
-        for(int i = 0; i < 7 ; i++){
-            Card card = new Card(new Dryad());
-            allDeck.add(card);
-        }
-        //Elf
-        for(int i = 0; i < 7 ; i++){
-            Card card = new Card(new Elf());
-            allDeck.add(card);
-        }
-        //Gnome
-        for(int i = 0; i < 7 ; i++){
-            Card card = new Card(new Gnome());
-            allDeck.add(card);
-        }
-        //Gobelin
-        for(int i = 0; i < 7 ; i++){
-            Card card = new Card(new Gobelin());
-            allDeck.add(card);
-        }
-        //Korrigan
-        for(int i = 0; i < 7 ; i++){
-            Card card = new Card(new Korrigan());
-            allDeck.add(card);
-        }
-        //Troll
-        for(int i = 0; i < 7 ; i++) {
-            Card card = new Card(new Troll());
-            allDeck.add(card);
+        for (int i = 0; i < 7; i++) {
+            allDeck.add(new Card(new Dryad()));
+            allDeck.add(new Card(new Gobelin()));
+            allDeck.add(new Card(new Troll()));
+            allDeck.add(new Card(new Korrigan()));
+            allDeck.add(new Card(new Gnome()));
+            allDeck.add(new Card(new Elf()));
         }
         return allDeck;
     }
@@ -101,6 +80,10 @@ public class BoardController implements Initializable {
             //Bind de la CC au GridHandUi
             handUiP1.add(cardController.getPane(),player1.getHand().size(),0); //L'index de la colonne est donnée par la taille de la main
 
+            CardController cardController1 = new CardController(player2.Draw(this.deck));
+            ColumnConstraints columnConstraints1 = new ColumnConstraints();
+            handUiP2.getColumnConstraints().add(columnConstraints);
+            handUiP2.add(cardController1.getPane(),player2.getHand().size(),0);
             //TODO Do the same for P2
         }
     }
@@ -131,6 +114,13 @@ public class BoardController implements Initializable {
         //Initialisation du GridPane avec 1 ligne (handPlayer vide)
         final RowConstraints rowConstraints = new RowConstraints();
         this.handUiP1.getRowConstraints().add(rowConstraints);
+
+        this.handUiP2.setVgap(15);
+        this.handUiP2.setHgap(15);
+        this.handUiP2.setAlignment(Pos.CENTER);
+        //Initialisation du GridPane avec 1 ligne (handPlayer vide)
+        final RowConstraints rowConstraints1 = new RowConstraints();
+        this.handUiP2.getRowConstraints().add(rowConstraints1);
     }
     private void InitBoardUi(){
         //Space between 2 card
