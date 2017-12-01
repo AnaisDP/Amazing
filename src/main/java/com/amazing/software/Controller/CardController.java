@@ -95,3 +95,4 @@ public class CardController extends Pane {
         });
     }
 }
+}
