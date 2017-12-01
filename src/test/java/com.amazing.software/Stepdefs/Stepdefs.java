@@ -1,4 +1,4 @@
-package com.amazing.software.Stepdefs;
+/*package com.amazing.software.Stepdefs;
 
 import com.amazing.software.Model.*;
 import com.sun.javafx.scene.control.ControlAcceleratorSupport;
@@ -204,4 +204,4 @@ public class Stepdefs {
             index+=1;
         }
     }
-}
+}*/
