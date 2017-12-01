@@ -72,7 +72,7 @@ public class BoardController implements Initializable {
 
     public void DistributeCards() throws Exception{
         while(player1.getHand().size() < 5 || player2.getHand().size() < 5){
-            //Creation d'une vue carte contronller
+            //Creation d'une vue carte controller
             CardController cardController = new CardController(player1.Draw(this.deck));
             //Création d'une nouvelle colonne dans le GridHandUi
             ColumnConstraints columnConstraints = new ColumnConstraints();
@@ -92,9 +92,17 @@ public class BoardController implements Initializable {
         DistributeCards();
         //TODO Function to distribute 5card to each player on UI
     }
+
+    public int PopulationUpdate(){
+
+        int populationPlayer1 = player1.getPopulation();
+        //int populationPlayer2 = player2.getPopulation();
+        return populationPlayer1;
+        //return populationPlayer2;
+    }
     //endregion
 
-    //Cette fonction est appellé lorsque que BoardController est completement initialisé
+    //Cette fonction est appellée lorsque que BoardController est completement initialisé
     @Override
     public void initialize(URL location, ResourceBundle resources){
         GridsPanesInit();
@@ -132,6 +140,7 @@ public class BoardController implements Initializable {
         this.boardUiP1.getRowConstraints().add(rowConstraints);
     }
     //endregion
+
     //region Get/Set
     public Player getPlayer1() {
         return player1;
