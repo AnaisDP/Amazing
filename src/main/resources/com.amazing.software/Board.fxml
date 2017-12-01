@@ -33,5 +33,7 @@
       <Label layoutX="531.0" layoutY="138.0" text="Label" />
       <Label layoutX="531.0" layoutY="211.0" text="Label" />
       <TextField fx:id="gameMasterText" editable="false" layoutX="353.0" layoutY="877.0" prefHeight="132.0" prefWidth="1314.0" style="-fx-border-color: black;" />
+      <Label fx:id="ScoreJ2" layoutX="531.0" layoutY="53.0" text="Label" />
+      <Label fx:id="ScoreJ1" layoutX="531.0" layoutY="328.0" text="Label" />
    </children>
 </AnchorPane>

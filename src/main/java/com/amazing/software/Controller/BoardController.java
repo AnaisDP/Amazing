@@ -1,28 +1,41 @@
 package com.amazing.software.Controller;
 
 import com.amazing.software.Model.*;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import com.sun.media.jfxmedia.events.PlayerStateEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.RowConstraints;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.RowConstraints;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.*;
+import java.util.List;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+import java.util.Stack;
 
 public class BoardController implements Initializable {
 
     //region attributs
     //TODO assigné dans la vue
+    @FXML
+    private Label ScoreJ1;
+    @FXML
+    private Label ScoreJ2;
     @FXML
     private GridPane handUiP1; //Ui handPlayer du joueur 1
     @FXML
@@ -40,6 +53,11 @@ public class BoardController implements Initializable {
     //Variable pour le jeu
     private Player player1;
     private Player player2;
+
+    public Stack<Card> getDeck() {
+        return deck;
+    }
+
     private Stack<Card> deck;
     //endregion
 
@@ -49,6 +67,52 @@ public class BoardController implements Initializable {
         this.player2 = new Player();
         this.deck = new Stack<Card>();
         Shuffle();
+    }
+    public void ScoreUpdate(){
+        List<String> liste= new ArrayList<String>();
+        liste.add("Gobelin");
+        liste.add("Elf");
+        liste.add("Troll");
+        liste.add("Dryad");
+        liste.add("Gnome");
+        liste.add("Korrigan");
+        for (Card card : player1.getBoard()) {
+            if(liste.contains(card.getRace().getName())){
+                liste.remove(card.getRace().getName());
+            }
+        }
+        if (liste.isEmpty()){
+            int scoreint=3+player1.getPopulation();
+            player1.setScore(scoreint);
+
+        }
+        else{
+            player1.setScore(player1.getPopulation());
+        }
+        String score=""+player1.getScore();
+        ScoreJ1.setText(score);
+        liste= new ArrayList<String>();
+        liste.add("Gobelin");
+        liste.add("Elf");
+        liste.add("Troll");
+        liste.add("Dryad");
+        liste.add("Gnome");
+        liste.add("Korrigan");
+        for (Card card : player2.getBoard()) {
+            if(liste.contains(card.getRace().getName())){
+                liste.remove(card.getRace().getName());
+            }
+        }
+        if (liste.isEmpty()){
+            int scoreint=3+player2.getPopulation();
+            player2.setScore(scoreint);
+
+        }
+        else{
+            player2.setScore(player2.getPopulation());
+        }
+        score=""+player2.getScore();
+        ScoreJ1.setText(score);
     }
 
 
@@ -94,11 +158,42 @@ public class BoardController implements Initializable {
     ///First function to call in the main
     public void StartGame()throws Exception{
         DistributeCards();
-        //TODO Function to distribute 5card to each player on UI
+    }
+
+    public int PopulationUpdate(){
+
+        int populationPlayer1 = player1.getPopulation();
+        //int populationPlayer2 = player2.getPopulation();
+        return populationPlayer1;
+        //return populationPlayer2;
     }
     //endregion
 
-    //Cette fonction est appellé lorsque que BoardController est completement initialisé
+    public void HandUpdate() throws Exception{
+        //Refresh player1
+        handUiP1.getColumnConstraints().remove(0,handUiP1.getColumnConstraints().size());
+        int count = 0;
+        for (Card card : player1.getHand()) {
+            CardController cardController = new CardController(card);
+            ColumnConstraints columnConstraints = new ColumnConstraints();
+            handUiP1.getColumnConstraints().add(columnConstraints);
+            handUiP1.add(cardController.getPane(),count,0);
+            count++;
+        }
+
+        //Refresh player2
+        handUiP2.getColumnConstraints().remove(0,handUiP2.getColumnConstraints().size());
+        count = 0;
+        for (Card card : getPlayer2().getHand()) {
+            CardController cardController = new CardController(card);
+            ColumnConstraints columnConstraints = new ColumnConstraints();
+            handUiP1.getColumnConstraints().add(columnConstraints);
+            handUiP1.add(cardController.getPane(),count,0);
+            count++;
+        }
+    }
+
+    //Cette fonction est appellée lorsque que BoardController est completement initialisé
     @Override
     public void initialize(URL location, ResourceBundle resources){
         GridsPanesInit();
@@ -135,6 +230,22 @@ public class BoardController implements Initializable {
         final RowConstraints rowConstraints = new RowConstraints();
         this.boardUiP1.getRowConstraints().add(rowConstraints);
     }
+    private void UpdateBoard() throws Exception {
+        for (Card card : player1.getBoard()) {
+            CardController newCard = new CardController(card);
+            ColumnConstraints columnConstraints = new ColumnConstraints();
+            boardUiP1.getColumnConstraints().add(columnConstraints);
+            boardUiP1.add(newCard.getPane(),player1.getBoard().size(),0);
+        }
+
+        for (Card card : player2.getBoard()) {
+            CardController newCard = new CardController(card);
+            ColumnConstraints columnConstraints = new ColumnConstraints();
+            boardUiP2.getColumnConstraints().add(columnConstraints);
+            boardUiP2.add(newCard.getPane(),player2.getBoard().size(),0);
+        }
+
+    }
 
     private void UpdateGameMaster(String message){
         gameMasterText.setText("\n"+ message);
@@ -146,6 +257,7 @@ public class BoardController implements Initializable {
     }
 
     //endregion
+
     //region Get/Set
     public Player getPlayer1() {
         return player1;
