@@ -1,22 +1,20 @@
 package com.amazing.software.Controller;
 
 import com.amazing.software.Model.*;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
-import javafx.event.EventHandler;
+import com.sun.media.jfxmedia.events.PlayerStateEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.RowConstraints;
 
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+import java.util.Stack;
 
 public class BoardController implements Initializable {
 
@@ -130,6 +128,22 @@ public class BoardController implements Initializable {
         //Initialisation du GridPane avec 1 ligne (boardPlayer vide)
         final RowConstraints rowConstraints = new RowConstraints();
         this.boardUiP1.getRowConstraints().add(rowConstraints);
+    }
+    private void UpdateBoard() throws Exception {
+        for (Card card : player1.getBoard()) {
+            CardController newCard = new CardController(card);
+            ColumnConstraints columnConstraints = new ColumnConstraints();
+            boardUiP1.getColumnConstraints().add(columnConstraints);
+            boardUiP1.add(newCard.getPane(),player1.getBoard().size(),0);
+        }
+
+        for (Card card : player2.getBoard()) {
+            CardController newCard = new CardController(card);
+            ColumnConstraints columnConstraints = new ColumnConstraints();
+            boardUiP2.getColumnConstraints().add(columnConstraints);
+            boardUiP2.add(newCard.getPane(),player2.getBoard().size(),0);
+        }
+
     }
     //endregion
     //region Get/Set
