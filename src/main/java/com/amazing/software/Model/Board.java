@@ -101,9 +101,9 @@ public class Board {
                 DisplayBoard();
                 System.out.println("Jouez une carte :");
                 int cardPlayedP1 = reader.nextInt();
-                Card carte = player1.Play(cardPlayedP1);
+                //Card carte = player1.Play(cardPlayedP1);
                 DisplayBoard();
-                ActivePower(player1, player2, carte);
+                //ActivePower(player1, player2, carte);
             } else {
                 System.out.println("Vous n'avez plus de cartes dans votre main, vous passez votre tour");
             }
@@ -115,8 +115,8 @@ public class Board {
             }
             if (player2.getHand().size() != 0) {
                 DisplayBoard();
-                Card carte = player2.Play(0);
-                ActivePower(player2, player1, carte);
+                //Card carte = player2.Play(0);
+                //ActivePower(player2, player1, carte);
             } else {
                 System.out.println("Player 2 n'a plus de cartes dans sa main, il passe son tour");
             }

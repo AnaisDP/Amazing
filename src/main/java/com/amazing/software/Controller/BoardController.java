@@ -1,22 +1,22 @@
 package com.amazing.software.Controller;
 
 import com.amazing.software.Model.*;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
-import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.*;
+import javafx.scene.layout.ColumnConstraints;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.RowConstraints;
 
 import java.net.URL;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+import java.util.Stack;
 
 public class BoardController implements Initializable {
 
@@ -33,9 +33,15 @@ public class BoardController implements Initializable {
     @FXML
     private GridPane boardUiP2; //Ui pour le terrain du joueur 2
 
+
     //Variable pour le jeu
     private Player player1;
     private Player player2;
+
+    public Stack<Card> getDeck() {
+        return deck;
+    }
+
     private Stack<Card> deck;
     //endregion
 
@@ -70,10 +76,27 @@ public class BoardController implements Initializable {
         return allDeck;
     }
 
+
+
     public void DistributeCards() throws Exception{
         while(player1.getHand().size() < 5 || player2.getHand().size() < 5){
             //Creation d'une vue carte contronller
             CardController cardController = new CardController(player1.Draw(this.deck));
+            cardController.parent = this;
+
+            /*//Init de l'event onClick sur la carte.
+            cardController.getPane().setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    System.out.println(cardController.getCard().toString());
+                    cardController.getCard().getRace().Power(player1,player2,deck,0);
+                    player1.Play(cardController.getCard());
+                    ActionEvent activePower = new ActionEvent();
+                    System.out.println("Le joueur a activé son pouvoir");
+                }
+            });*/
+
+
             //Création d'une nouvelle colonne dans le GridHandUi
             ColumnConstraints columnConstraints = new ColumnConstraints();
             handUiP1.getColumnConstraints().add(columnConstraints);
@@ -84,15 +107,37 @@ public class BoardController implements Initializable {
             ColumnConstraints columnConstraints1 = new ColumnConstraints();
             handUiP2.getColumnConstraints().add(columnConstraints);
             handUiP2.add(cardController1.getPane(),player2.getHand().size(),0);
-            //TODO Do the same for P2
         }
     }
     ///First function to call in the main
     public void StartGame()throws Exception{
         DistributeCards();
-        //TODO Function to distribute 5card to each player on UI
     }
     //endregion
+
+    public void HandUpdate() throws Exception{
+        //Refresh player1
+        handUiP1.getColumnConstraints().remove(0,handUiP1.getColumnConstraints().size());
+        int count = 0;
+        for (Card card : player1.getHand()) {
+            CardController cardController = new CardController(card);
+            ColumnConstraints columnConstraints = new ColumnConstraints();
+            handUiP1.getColumnConstraints().add(columnConstraints);
+            handUiP1.add(cardController.getPane(),count,0);
+            count++;
+        }
+
+        //Refresh player2
+        handUiP2.getColumnConstraints().remove(0,handUiP2.getColumnConstraints().size());
+        count = 0;
+        for (Card card : getPlayer2().getHand()) {
+            CardController cardController = new CardController(card);
+            ColumnConstraints columnConstraints = new ColumnConstraints();
+            handUiP1.getColumnConstraints().add(columnConstraints);
+            handUiP1.add(cardController.getPane(),count,0);
+            count++;
+        }
+    }
 
     //Cette fonction est appellé lorsque que BoardController est completement initialisé
     @Override

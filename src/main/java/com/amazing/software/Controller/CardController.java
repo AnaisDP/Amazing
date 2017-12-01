@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
@@ -20,9 +21,11 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class CardController extends Pane {
+    BoardController parent;
 
     @FXML
     Pane pane;
@@ -50,9 +53,10 @@ public class CardController extends Pane {
         this.pane.setEffect(new DropShadow(20, Color.WHITE));
         this.pane.setStyle("-fx-border-color: black;"); //Initialize card here
         this.pane.setStyle("-fx-border-radius : ");
+
         if (this.card.getRace().getName() == "Elf") {
             this.pane.setStyle("-fx-background-color: green;");
-        } else if (this.card.getRace().getName() == "Dryad") {
+        } else if ("Dryad".equals(this.card.getRace().getName())) {
             this.pane.setStyle("-fx-background-color: white;");
         } else if (this.card.getRace().getName() == "Gobelin") {
             this.pane.setStyle("-fx-background-color: blue;");
@@ -65,5 +69,27 @@ public class CardController extends Pane {
         } else if (this.card.getRace().getName() == "Troll") {
             this.pane.setStyle("-fx-background-color: purple;");
         }
+
+        this.pane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Node node = pane.getParent();
+                String nameParentUI = node.getId();
+                System.out.println("Parent : "+nameParentUI);
+                switch (nameParentUI){
+                    case "handUiP1":
+                        parent.getPlayer1().Play(card);
+                        card.getRace().Power(parent.getPlayer1(),parent.getPlayer2(),parent.getDeck(),0);
+                        try {
+                            parent.HandUpdate();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                }
+                //parent.getPlayer1().Play(card);
+                //parent.updateBoard();
+            }
+        });
     }
 }
