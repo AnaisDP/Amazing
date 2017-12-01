@@ -56,9 +56,9 @@ public class Player {
         return card;
     }
 
-    public Card Play(int index){
-        this.board.add(hand.get(index));
-        return hand.remove(index);
+    public void Play(Card card){
+        this.board.add(card);
+        hand.remove(card);
     }
 
 
