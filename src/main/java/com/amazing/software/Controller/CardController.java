@@ -7,6 +7,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
@@ -20,9 +21,11 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class CardController extends Pane {
+    BoardController parent;
 
     @FXML
     Pane pane;
@@ -50,20 +53,45 @@ public class CardController extends Pane {
         this.pane.setEffect(new DropShadow(20, Color.WHITE));
         this.pane.setStyle("-fx-border-color: black;"); //Initialize card here
         this.pane.setStyle("-fx-border-radius : ");
+
         if (this.card.getRace().getName() == "Elf") {
+        if (Objects.equals("Elf", this.card.getRace().getName())) {
             this.pane.setStyle("-fx-background-color: green;");
-        } else if (this.card.getRace().getName() == "Dryad") {
+        } else if ("Dryad".equals(this.card.getRace().getName())) {
+        } else if (Objects.equals("Dryad", this.card.getRace().getName())) {
             this.pane.setStyle("-fx-background-color: white;");
-        } else if (this.card.getRace().getName() == "Gobelin") {
+        } else if (Objects.equals("Gobelin", this.card.getRace().getName())) {
             this.pane.setStyle("-fx-background-color: blue;");
-        } else if (this.card.getRace().getName() == "Gnome") {
+        } else if (Objects.equals("Gnome", this.card.getRace().getName())) {
             this.pane.setStyle("-fx-background-color: orange;");
-        } else if (this.card.getRace().getName() == "Korrigan") {
+        } else if (Objects.equals("Korrigan", this.card.getRace().getName())) {
             this.pane.setStyle("-fx-background-color: red;");
-        } else if (this.card.getRace().getName() == "Dryad") {
+        } else if (Objects.equals("Dryad", this.card.getRace().getName())) {
             this.pane.setStyle("-fx-background-color: yellow;");
-        } else if (this.card.getRace().getName() == "Troll") {
+        } else if (Objects.equals("Troll", this.card.getRace().getName())) {
             this.pane.setStyle("-fx-background-color: purple;");
         }
+
+        this.pane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                Node node = pane.getParent();
+                String nameParentUI = node.getId();
+                System.out.println("Parent : "+nameParentUI);
+                switch (nameParentUI){
+                    case "handUiP1":
+                        parent.getPlayer1().Play(card);
+                        card.getRace().Power(parent.getPlayer1(),parent.getPlayer2(),parent.getDeck(),0);
+                        try {
+                            parent.HandUpdate();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        break;
+                }
+                //parent.getPlayer1().Play(card);
+                //parent.updateBoard();
+            }
+        });
     }
 }
