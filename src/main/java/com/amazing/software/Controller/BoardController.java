@@ -12,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 
@@ -32,6 +33,9 @@ public class BoardController implements Initializable {
     private GridPane boardUiP1; //Ui pour le terrain du joueur 1
     @FXML
     private GridPane boardUiP2; //Ui pour le terrain du joueur 2
+    @FXML
+    //GameMaster textfield who explain all things that change
+    private TextField gameMasterText;
 
     //Variable pour le jeu
     private Player player1;
@@ -131,6 +135,16 @@ public class BoardController implements Initializable {
         final RowConstraints rowConstraints = new RowConstraints();
         this.boardUiP1.getRowConstraints().add(rowConstraints);
     }
+
+    private void UpdateGameMaster(String message){
+        gameMasterText.setText("\n"+ message);
+    }
+
+    private void UpdateDeckFinished(){
+    pioche.setVisible(false);
+    pioche.setDisable(true);
+    }
+
     //endregion
     //region Get/Set
     public Player getPlayer1() {
