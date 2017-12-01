@@ -54,44 +54,48 @@ public class CardController extends Pane {
         this.pane.setStyle("-fx-border-color: black;"); //Initialize card here
         this.pane.setStyle("-fx-border-radius : ");
 
-        if (this.card.getRace().getName() == "Elf") {
-        if (Objects.equals("Elf", this.card.getRace().getName())) {
-            this.pane.setStyle("-fx-background-color: green;");
-        } else if ("Dryad".equals(this.card.getRace().getName())) {
-        } else if (Objects.equals("Dryad", this.card.getRace().getName())) {
-            this.pane.setStyle("-fx-background-color: white;");
-        } else if (Objects.equals("Gobelin", this.card.getRace().getName())) {
-            this.pane.setStyle("-fx-background-color: blue;");
-        } else if (Objects.equals("Gnome", this.card.getRace().getName())) {
-            this.pane.setStyle("-fx-background-color: orange;");
-        } else if (Objects.equals("Korrigan", this.card.getRace().getName())) {
-            this.pane.setStyle("-fx-background-color: red;");
-        } else if (Objects.equals("Dryad", this.card.getRace().getName())) {
-            this.pane.setStyle("-fx-background-color: yellow;");
-        } else if (Objects.equals("Troll", this.card.getRace().getName())) {
-            this.pane.setStyle("-fx-background-color: purple;");
-        }
-
-        this.pane.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                Node node = pane.getParent();
-                String nameParentUI = node.getId();
-                System.out.println("Parent : "+nameParentUI);
-                switch (nameParentUI){
-                    case "handUiP1":
-                        parent.getPlayer1().Play(card);
-                        card.getRace().Power(parent.getPlayer1(),parent.getPlayer2(),parent.getDeck(),0);
-                        try {
-                            parent.HandUpdate();
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                        break;
-                }
-                //parent.getPlayer1().Play(card);
-                //parent.updateBoard();
+            if ("Elf".equals(this.card.getRace().getName())) {
+                this.pane.setStyle("-fx-background-color: green;");
+            } else if ("Dryad".equals(this.card.getRace().getName())) {
+                this.pane.setStyle("-fx-background-color: white;");
+            } else if ("Gobelin".equals(this.card.getRace().getName())) {
+                this.pane.setStyle("-fx-background-color: blue;");
+            } else if ("Gnome".equals(this.card.getRace().getName())) {
+                this.pane.setStyle("-fx-background-color: orange;");
+            } else if ("Korrigan".equals(this.card.getRace().getName())) {
+                this.pane.setStyle("-fx-background-color: red;");
+            } else if ("Dryad".equals(this.card.getRace().getName())) {
+                this.pane.setStyle("-fx-background-color: yellow;");
+            } else if ("Troll".equals(this.card.getRace().getName())) {
+                this.pane.setStyle("-fx-background-color: purple;");
             }
-        });
+
+            this.pane.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent event) {
+                    Node node = pane.getParent();
+                    String nameParentUI = node.getId();
+                    System.out.println("Parent : " + nameParentUI);
+                    switch (nameParentUI) {
+                        case "handUiP1":
+                            parent.getPlayer1().Play(card);
+                            card.getRace().Power(parent.getPlayer1(), parent.getPlayer2(), parent.getDeck(), 0);
+                            try {
+                                parent.HandUpdate();
+                                parent.UpdateBoard();
+                                parent.PopulationUpdate();
+                                parent.ScoreUpdate();
+                                parent.UpdateGameMaster("Player 1 has played a "+card.getRace().getName());
+
+
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            break;
+                    }
+                    //parent.getPlayer1().Play(card);
+                    //parent.updateBoard();
+                }
+            });
+        }
     }
-}

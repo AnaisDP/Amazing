@@ -1,9 +1,7 @@
 package com.amazing.software.Controller;
 
 import com.amazing.software.Model.*;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import com.sun.media.jfxmedia.events.PlayerStateEvent;
+import cucumber.api.java.hu.Ha;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -18,7 +16,7 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
-
+import javafx.scene.control.Label;
 import java.awt.*;
 import java.net.URL;
 import java.util.*;
@@ -140,20 +138,10 @@ public class BoardController implements Initializable {
 
     public void DistributeCards() throws Exception{
         while(player1.getHand().size() < 5 || player2.getHand().size() < 5){
-            //Creation d'une vue carte contronller
-            CardController cardController = new CardController(player1.Draw(this.deck));
-            //Création d'une nouvelle colonne dans le GridHandUi
-            ColumnConstraints columnConstraints = new ColumnConstraints();
-            handUiP1.getColumnConstraints().add(columnConstraints);
-            //Bind de la CC au GridHandUi
-            handUiP1.add(cardController.getPane(),player1.getHand().size(),0); //L'index de la colonne est donnée par la taille de la main
-
-            CardController cardController1 = new CardController(player2.Draw(this.deck));
-            ColumnConstraints columnConstraints1 = new ColumnConstraints();
-            handUiP2.getColumnConstraints().add(columnConstraints);
-            handUiP2.add(cardController1.getPane(),player2.getHand().size(),0);
-            //TODO Do the same for P2
+            player1.Draw(this.deck);
+            player2.Draw(this.deck);
         }
+        HandUpdate();
     }
     ///First function to call in the main
     public void StartGame()throws Exception{
@@ -187,8 +175,8 @@ public class BoardController implements Initializable {
         for (Card card : getPlayer2().getHand()) {
             CardController cardController = new CardController(card);
             ColumnConstraints columnConstraints = new ColumnConstraints();
-            handUiP1.getColumnConstraints().add(columnConstraints);
-            handUiP1.add(cardController.getPane(),count,0);
+            handUiP2.getColumnConstraints().add(columnConstraints);
+            handUiP2.add(cardController.getPane(),count,0);
             count++;
         }
     }
@@ -230,7 +218,7 @@ public class BoardController implements Initializable {
         final RowConstraints rowConstraints = new RowConstraints();
         this.boardUiP1.getRowConstraints().add(rowConstraints);
     }
-    private void UpdateBoard() throws Exception {
+    public void UpdateBoard() throws Exception {
         for (Card card : player1.getBoard()) {
             CardController newCard = new CardController(card);
             ColumnConstraints columnConstraints = new ColumnConstraints();
@@ -247,11 +235,11 @@ public class BoardController implements Initializable {
 
     }
 
-    private void UpdateGameMaster(String message){
+    public void UpdateGameMaster(String message){
         gameMasterText.setText("\n"+ message);
     }
 
-    private void UpdateDeckFinished(){
+    public void UpdateDeckFinished(){
     pioche.setVisible(false);
     pioche.setDisable(true);
     }
