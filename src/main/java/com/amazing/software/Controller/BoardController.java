@@ -15,13 +15,19 @@ import javafx.geometry.Pos;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 
+import java.awt.*;
 import java.net.URL;
 import java.util.*;
+import java.util.List;
 
 public class BoardController implements Initializable {
 
     //region attributs
     //TODO assigné dans la vue
+    @FXML
+    private Label ScoreJ1;
+    @FXML
+    private Label ScoreJ2;
     @FXML
     private GridPane handUiP1; //Ui handPlayer du joueur 1
     @FXML
@@ -45,6 +51,52 @@ public class BoardController implements Initializable {
         this.player2 = new Player();
         this.deck = new Stack<Card>();
         Shuffle();
+    }
+    public void ScoreUpdate(){
+        List<String> liste= new ArrayList<String>();
+        liste.add("Gobelin");
+        liste.add("Elf");
+        liste.add("Troll");
+        liste.add("Dryad");
+        liste.add("Gnome");
+        liste.add("Korrigan");
+        for (Card card : player1.getBoard()) {
+            if(liste.contains(card.getRace().getName())){
+                liste.remove(card.getRace().getName());
+            }
+        }
+        if (liste.isEmpty()){
+            int scoreint=3+player1.getPopulation();
+            player1.setScore(scoreint);
+
+        }
+        else{
+            player1.setScore(player1.getPopulation());
+        }
+        String score=""+player1.getScore();
+        ScoreJ1.setText(score);
+        liste= new ArrayList<String>();
+        liste.add("Gobelin");
+        liste.add("Elf");
+        liste.add("Troll");
+        liste.add("Dryad");
+        liste.add("Gnome");
+        liste.add("Korrigan");
+        for (Card card : player2.getBoard()) {
+            if(liste.contains(card.getRace().getName())){
+                liste.remove(card.getRace().getName());
+            }
+        }
+        if (liste.isEmpty()){
+            int scoreint=3+player2.getPopulation();
+            player2.setScore(scoreint);
+
+        }
+        else{
+            player2.setScore(player2.getPopulation());
+        }
+        score=""+player2.getScore();
+        ScoreJ1.setText(score);
     }
 
 
@@ -74,6 +126,7 @@ public class BoardController implements Initializable {
         while(player1.getHand().size() < 5 || player2.getHand().size() < 5){
             //Creation d'une vue carte contronller
             CardController cardController = new CardController(player1.Draw(this.deck));
+            cardController.parent=this;
             //Création d'une nouvelle colonne dans le GridHandUi
             ColumnConstraints columnConstraints = new ColumnConstraints();
             handUiP1.getColumnConstraints().add(columnConstraints);
@@ -86,11 +139,6 @@ public class BoardController implements Initializable {
             handUiP2.add(cardController1.getPane(),player2.getHand().size(),0);
             //TODO Do the same for P2
         }
-    }
-    ///First function to call in the main
-    public void StartGame()throws Exception{
-        DistributeCards();
-        //TODO Function to distribute 5card to each player on UI
     }
     //endregion
 
