@@ -25,6 +25,7 @@ import java.util.Objects;
 import java.util.ResourceBundle;
 
 public class CardController extends Pane {
+
     BoardController parent;
 
     @FXML
@@ -40,12 +41,13 @@ public class CardController extends Pane {
         return pane;
     }
 
-    public CardController(Card card) throws Exception {
+    public CardController(Card card,BoardController boardController) throws Exception {
         this.card = card;
         URL fxmlUrl = getClass().getResource("/com.amazing.software/Card.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl);
         fxmlLoader.setController(this);
         this.pane = (Pane) fxmlLoader.load();
+        this.parent = boardController;
         initCard();
     }
 
@@ -76,6 +78,8 @@ public class CardController extends Pane {
                     Node node = pane.getParent();
                     String nameParentUI = node.getId();
                     System.out.println("Parent : " + nameParentUI);
+                    System.out.println("Card clicked :"+card.toString());
+                    System.out.println("Joueur played :"+parent.getPlayer1().toString());
                     switch (nameParentUI) {
                         case "handUiP1":
                             parent.getPlayer1().Play(card);

@@ -66,6 +66,97 @@ public class BoardController implements Initializable {
         this.deck = new Stack<Card>();
         Shuffle();
     }
+
+    //region méthodes
+    ///Initialize a shuffled deck this is the main function to generate the deck
+    public void Shuffle(){
+        List<Card> list = GenerateADeck();
+        java.util.Collections.shuffle(list);
+        this.deck.addAll(list);
+    }
+    ///Generate a deck with all different race
+    public List<Card> GenerateADeck() {
+        List<Card> allDeck = new ArrayList<>();
+        //Dryad
+        for (int i = 0; i < 7; i++) {
+            allDeck.add(new Card(new Dryad()));
+            allDeck.add(new Card(new Gobelin()));
+            allDeck.add(new Card(new Troll()));
+            allDeck.add(new Card(new Korrigan()));
+            allDeck.add(new Card(new Gnome()));
+            allDeck.add(new Card(new Elf()));
+        }
+        return allDeck;
+    }
+
+    public void DistributeCards() throws Exception{
+        while(player1.getHand().size() < 5 || player2.getHand().size() < 5){
+            player1.Draw(this.deck);
+            player2.Draw(this.deck);
+        }
+        HandUpdate();
+    }
+    ///First function to call in the main
+    public void StartGame()throws Exception{
+        DistributeCards();
+    }
+
+    //endregion
+
+    //region Update
+    public void UpdateBoard() throws Exception {
+        for (Card card : player1.getBoard()) {
+            CardController newCard = new CardController(card,this);
+            ColumnConstraints columnConstraints = new ColumnConstraints();
+            boardUiP1.getColumnConstraints().add(columnConstraints);
+            boardUiP1.add(newCard.getPane(),player1.getBoard().size(),0);
+        }
+
+        for (Card card : player2.getBoard()) {
+            CardController newCard = new CardController(card,this);
+            ColumnConstraints columnConstraints = new ColumnConstraints();
+            boardUiP2.getColumnConstraints().add(columnConstraints);
+            boardUiP2.add(newCard.getPane(),player2.getBoard().size(),0);
+        }
+
+    }
+    public void HandUpdate() throws Exception{
+        //Refresh player1
+        handUiP1.getColumnConstraints().remove(0,handUiP1.getColumnConstraints().size());
+        int count = 0;
+        for (Card card : player1.getHand()) {
+            CardController cardController = new CardController(card,this);
+            ColumnConstraints columnConstraints = new ColumnConstraints();
+            handUiP1.getColumnConstraints().add(columnConstraints);
+            handUiP1.add(cardController.getPane(),count,0);
+            count++;
+        }
+
+        //Refresh player2
+        handUiP2.getColumnConstraints().remove(0,handUiP2.getColumnConstraints().size());
+        count = 0;
+        for (Card card : getPlayer2().getHand()) {
+            CardController cardController = new CardController(card,this);
+            ColumnConstraints columnConstraints = new ColumnConstraints();
+            handUiP2.getColumnConstraints().add(columnConstraints);
+            handUiP2.add(cardController.getPane(),count,0);
+            count++;
+        }
+    }
+    public void UpdateGameMaster(String message){
+        gameMasterText.setText("\n"+ message);
+    }
+    public void UpdateDeckFinished(){
+        pioche.setVisible(false);
+        pioche.setDisable(true);
+    }
+    public int PopulationUpdate(){
+
+        int populationPlayer1 = player1.getPopulation();
+        //int populationPlayer2 = player2.getPopulation();
+        return populationPlayer1;
+        //return populationPlayer2;
+    }
     public void ScoreUpdate(){
         List<String> liste= new ArrayList<String>();
         liste.add("Gobelin");
@@ -112,74 +203,8 @@ public class BoardController implements Initializable {
         score=""+player2.getScore();
         ScoreJ1.setText(score);
     }
-
-
-    //region méthodes
-    ///Initialize a shuffled deck this is the main function to generate the deck
-    public void Shuffle(){
-        List<Card> list = GenerateADeck();
-        java.util.Collections.shuffle(list);
-        this.deck.addAll(list);
-    }
-    ///Generate a deck with all different race
-    public List<Card> GenerateADeck() {
-        List<Card> allDeck = new ArrayList<>();
-        //Dryad
-        for (int i = 0; i < 7; i++) {
-            allDeck.add(new Card(new Dryad()));
-            allDeck.add(new Card(new Gobelin()));
-            allDeck.add(new Card(new Troll()));
-            allDeck.add(new Card(new Korrigan()));
-            allDeck.add(new Card(new Gnome()));
-            allDeck.add(new Card(new Elf()));
-        }
-        return allDeck;
-    }
-
-    public void DistributeCards() throws Exception{
-        while(player1.getHand().size() < 5 || player2.getHand().size() < 5){
-            player1.Draw(this.deck);
-            player2.Draw(this.deck);
-        }
-        HandUpdate();
-    }
-    ///First function to call in the main
-    public void StartGame()throws Exception{
-        DistributeCards();
-    }
-
-    public int PopulationUpdate(){
-
-        int populationPlayer1 = player1.getPopulation();
-        //int populationPlayer2 = player2.getPopulation();
-        return populationPlayer1;
-        //return populationPlayer2;
-    }
     //endregion
 
-    public void HandUpdate() throws Exception{
-        //Refresh player1
-        handUiP1.getColumnConstraints().remove(0,handUiP1.getColumnConstraints().size());
-        int count = 0;
-        for (Card card : player1.getHand()) {
-            CardController cardController = new CardController(card);
-            ColumnConstraints columnConstraints = new ColumnConstraints();
-            handUiP1.getColumnConstraints().add(columnConstraints);
-            handUiP1.add(cardController.getPane(),count,0);
-            count++;
-        }
-
-        //Refresh player2
-        handUiP2.getColumnConstraints().remove(0,handUiP2.getColumnConstraints().size());
-        count = 0;
-        for (Card card : getPlayer2().getHand()) {
-            CardController cardController = new CardController(card);
-            ColumnConstraints columnConstraints = new ColumnConstraints();
-            handUiP2.getColumnConstraints().add(columnConstraints);
-            handUiP2.add(cardController.getPane(),count,0);
-            count++;
-        }
-    }
 
     //Cette fonction est appellée lorsque que BoardController est completement initialisé
     @Override
@@ -218,31 +243,8 @@ public class BoardController implements Initializable {
         final RowConstraints rowConstraints = new RowConstraints();
         this.boardUiP1.getRowConstraints().add(rowConstraints);
     }
-    public void UpdateBoard() throws Exception {
-        for (Card card : player1.getBoard()) {
-            CardController newCard = new CardController(card);
-            ColumnConstraints columnConstraints = new ColumnConstraints();
-            boardUiP1.getColumnConstraints().add(columnConstraints);
-            boardUiP1.add(newCard.getPane(),player1.getBoard().size(),0);
-        }
 
-        for (Card card : player2.getBoard()) {
-            CardController newCard = new CardController(card);
-            ColumnConstraints columnConstraints = new ColumnConstraints();
-            boardUiP2.getColumnConstraints().add(columnConstraints);
-            boardUiP2.add(newCard.getPane(),player2.getBoard().size(),0);
-        }
 
-    }
-
-    public void UpdateGameMaster(String message){
-        gameMasterText.setText("\n"+ message);
-    }
-
-    public void UpdateDeckFinished(){
-    pioche.setVisible(false);
-    pioche.setDisable(true);
-    }
 
     //endregion
 
