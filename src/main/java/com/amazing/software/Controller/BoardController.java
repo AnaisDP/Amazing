@@ -17,7 +17,7 @@ import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
-
+import  javafx.scene.control.Label;
 import java.awt.*;
 import java.net.URL;
 import java.util.*;
@@ -111,7 +111,7 @@ public class BoardController implements Initializable {
             player2.setScore(player2.getPopulation());
         }
         score=""+player2.getScore();
-        ScoreJ1.setText(score);
+        ScoreJ2.setText(score);
     }
 
 
