@@ -9,7 +9,7 @@ public class Gnome extends Race {
         this.power = "Draw 2 cards";
     }
     @Override
-    public void Power(Player p1,Player p2, Stack<Card> Deck,int index){
+    public void Power(Player p1,Player p2, Stack<Card> Deck,Card card){
         if(Deck.size()==1){
             p1.getHand().add(Deck.pop());
         }

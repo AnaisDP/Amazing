@@ -31,6 +31,10 @@ public class BoardController implements Initializable {
     //region attributs
     //TODO assigné dans la vue
     @FXML
+    private Label PopJ1;
+    @FXML
+    private Label PopJ2;
+    @FXML
     private Label ScoreJ1;
     @FXML
     private Label ScoreJ2;
@@ -105,18 +109,25 @@ public class BoardController implements Initializable {
 
     //region Update
     public void UpdateBoard() throws Exception {
-        for (Card card : player1.getBoard()) {
+        boardUiP1.getColumnConstraints().remove(0,boardUiP1.getColumnConstraints().size());
+        int count=0;
+        for (Card card : getPlayer1().getBoard()) {
+            System.out.println("Player1:"+card.getRace().getName());
             CardController newCard = new CardController(card,this);
             ColumnConstraints columnConstraints = new ColumnConstraints();
             boardUiP1.getColumnConstraints().add(columnConstraints);
-            boardUiP1.add(newCard.getPane(),player1.getBoard().size(),0);
+            boardUiP1.add(newCard.getPane(),count,0);
+            count++;
         }
-
-        for (Card card : player2.getBoard()) {
+        boardUiP2.getColumnConstraints().remove(0,boardUiP2.getColumnConstraints().size());
+        count=0;
+        for (Card card : getPlayer2().getBoard()) {
+            System.out.println("Player2:"+card.getRace().getName());
             CardController newCard = new CardController(card,this);
             ColumnConstraints columnConstraints = new ColumnConstraints();
             boardUiP2.getColumnConstraints().add(columnConstraints);
-            boardUiP2.add(newCard.getPane(),player2.getBoard().size(),0);
+            boardUiP2.add(newCard.getPane(),count,0);
+            count++;
         }
 
     }
@@ -124,7 +135,7 @@ public class BoardController implements Initializable {
         //Refresh player1
         handUiP1.getColumnConstraints().remove(0,handUiP1.getColumnConstraints().size());
         int count = 0;
-        for (Card card : player1.getHand()) {
+        for (Card card : getPlayer1().getHand()) {
             CardController cardController = new CardController(card,this);
             ColumnConstraints columnConstraints = new ColumnConstraints();
             handUiP1.getColumnConstraints().add(columnConstraints);
@@ -150,12 +161,13 @@ public class BoardController implements Initializable {
         pioche.setVisible(false);
         pioche.setDisable(true);
     }
-    public int PopulationUpdate(){
+    public void PopulationUpdate(){
+        String pop;
+        pop=""+player1.getPopulation();
+        PopJ1.setText(pop);
+        pop=""+player2.getPopulation();
+        PopJ2.setText(pop);
 
-        int populationPlayer1 = player1.getPopulation();
-        //int populationPlayer2 = player2.getPopulation();
-        return populationPlayer1;
-        //return populationPlayer2;
     }
     public void ScoreUpdate(){
         List<String> liste= new ArrayList<String>();
@@ -173,13 +185,12 @@ public class BoardController implements Initializable {
         if (liste.isEmpty()){
             int scoreint=3+player1.getPopulation();
             player1.setScore(scoreint);
-
         }
         else{
             player1.setScore(player1.getPopulation());
         }
         String score=""+player1.getScore();
-        ScoreJ1.setText(score);
+        ScoreJ1.setText("Score1: "+score);
         liste= new ArrayList<String>();
         liste.add("Gobelin");
         liste.add("Elf");
@@ -195,13 +206,12 @@ public class BoardController implements Initializable {
         if (liste.isEmpty()){
             int scoreint=3+player2.getPopulation();
             player2.setScore(scoreint);
-
         }
         else{
             player2.setScore(player2.getPopulation());
         }
         score=""+player2.getScore();
-        ScoreJ1.setText(score);
+        ScoreJ2.setText("Score2: "+score);
     }
     //endregion
 

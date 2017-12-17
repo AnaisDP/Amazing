@@ -21,6 +21,7 @@ import javax.swing.border.Border;
 import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
@@ -50,7 +51,10 @@ public class CardController extends Pane {
         this.parent = boardController;
         initCard();
     }
-
+    public Card WaitCard(List<Card> Place){
+        Card cardSelected=null;
+        return cardSelected;
+    }
     private void initCard() {
         this.pane.setEffect(new DropShadow(20, Color.WHITE));
         this.pane.setStyle("-fx-border-color: black;"); //Initialize card here
@@ -80,10 +84,11 @@ public class CardController extends Pane {
                     System.out.println("Parent : " + nameParentUI);
                     System.out.println("Card clicked :"+card.toString());
                     System.out.println("Joueur played :"+parent.getPlayer1().toString());
+                    String previous;
                     switch (nameParentUI) {
                         case "handUiP1":
                             parent.getPlayer1().Play(card);
-                            card.getRace().Power(parent.getPlayer1(), parent.getPlayer2(), parent.getDeck(), 0);
+                            card.getRace().Power(parent.getPlayer1(), parent.getPlayer2(), parent.getDeck(), null);
                             try {
                                 parent.HandUpdate();
                                 parent.UpdateBoard();
@@ -95,7 +100,7 @@ public class CardController extends Pane {
                             } catch (Exception e) {
                                 e.printStackTrace();
                             }
-                            break;
+                             break;
                     }
                     //parent.getPlayer1().Play(card);
                     //parent.updateBoard();

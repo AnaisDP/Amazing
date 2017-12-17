@@ -47,7 +47,7 @@ public class Board {
         return allDeck;
     }
 
-    public void ActivePower(Player playing, Player opponent, Card card) {
+    /*public void ActivePower(Player playing, Player opponent, Card card) {
         System.out.println("Player " + playing.toString() + " is playing a " + card.getRace().getName());
         Scanner reader = new Scanner(System.in);
         if (card.getRace() instanceof Dryad) {
@@ -84,12 +84,12 @@ public class Board {
             player2.Draw(this.deck);
         }
 
-    }
+    }*/
 
     public void LaunchGame() {
         //Distribute 5 card to each
         Shuffle();
-        DistributeCards();
+        //DistributeCards();
 
         Scanner reader = new Scanner(System.in);  // Reading from System.in
         //Lancement de la boucle de jeu

@@ -11,7 +11,7 @@ public class Korrigan extends Race {
         this.power = "Draw 2 random cards within your opponent hand";
     }
     @Override
-    public void Power(Player p1,Player p2,Stack<Card> Deck,int index){
+    public void Power(Player p1,Player p2,Stack<Card> Deck,Card card){
         if(p2.getHand().size()==0){
 
         }else if(p2.getHand().size()==1){

@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="anchorPane" prefHeight="1080.0" prefWidth="1920.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <GridPane layoutX="110.0" layoutY="116.0" prefHeight="142.0" prefWidth="380.0" style="-fx-background-color: red;">
         <columnConstraints>
@@ -30,10 +30,10 @@
       </GridPane>
       <GridPane fx:id="handUiP1" layoutX="82.0" layoutY="283.0" style="-fx-background-color: green;">
       </GridPane>
-      <Label layoutX="531.0" layoutY="138.0" text="Label" />
-      <Label layoutX="531.0" layoutY="211.0" text="Label" />
+      <Label fx:id="PopJ2" layoutX="531.0" layoutY="138.0" text="0" />
+      <Label fx:id="PopJ1" layoutX="531.0" layoutY="211.0" text="0" />
       <TextField fx:id="gameMasterText" editable="false" layoutX="353.0" layoutY="877.0" prefHeight="132.0" prefWidth="1314.0" style="-fx-border-color: black;" />
-      <Label fx:id="ScoreJ2" layoutX="531.0" layoutY="53.0" text="Label" />
-      <Label fx:id="ScoreJ1" layoutX="531.0" layoutY="328.0" text="Label" />
+      <Label fx:id="ScoreJ2" layoutX="531.0" layoutY="53.0" text="Score2: 0" />
+      <Label fx:id="ScoreJ1" layoutX="531.0" layoutY="328.0" text="Score1: 0" />
    </children>
 </AnchorPane>
