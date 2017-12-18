@@ -2,3 +2,26 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
 }
+
+#background {
+-fx-background-image: url(/com.amazing.software/background.jpg);
+-fx-background-repeat: no-repeat;
+-fx-alignment: center;
+}
+
+#deck {
+-fx-background-image: url(/com.amazing.software/card-back.jpg);
+}
+
+.text {
+    -fx-text-fill: white;
+    -fx-font-size: 30px;
+    -fx-padding: 5px;
+}
+
+#back-board {
+-fx-background-image: url(/com.amazing.software/table-background.jpg);
+-fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+-fx-alignment: center;
+}
