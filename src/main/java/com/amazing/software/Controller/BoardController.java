@@ -2,10 +2,12 @@ package com.amazing.software.Controller;
 
 import com.amazing.software.Model.*;
 import cucumber.api.java.hu.Ha;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
@@ -44,6 +46,7 @@ public class BoardController implements Initializable {
     private GridPane handUiP2; // Ui handPlayer du joueur 2
     @FXML
     private Pane pioche; //Ui pour la pioche
+
     @FXML
     private GridPane boardUiP1; //Ui pour le terrain du joueur 1
     @FXML
@@ -104,6 +107,8 @@ public class BoardController implements Initializable {
     public void StartGame()throws Exception{
         DistributeCards();
     }
+
+
 
     //endregion
 
@@ -266,5 +271,27 @@ public class BoardController implements Initializable {
         return player2;
     }
     public GridPane getHandUiP1() {return handUiP1;}
+    public Label getPopJ1() {
+        return PopJ1;
+    }
+
+    public void setPopJ1(Label popJ1) {
+        PopJ1 = popJ1;
+    }
+    public GridPane getBoardUiP1() {
+        return boardUiP1;
+    }
+
+    public void setBoardUiP1(GridPane boardUiP1) {
+        this.boardUiP1 = boardUiP1;
+    }
+
+    public GridPane getBoardUiP2() {
+        return boardUiP2;
+    }
+
+    public void setBoardUiP2(GridPane boardUiP2) {
+        this.boardUiP2 = boardUiP2;
+    }
     //endregion
 }

@@ -22,7 +22,6 @@ public class Main extends Application{
             primaryStage.show();
             BoardController boardController = loader.getController();
             boardController.StartGame();
-
         } catch (Exception e) {
             e.printStackTrace();
         }
