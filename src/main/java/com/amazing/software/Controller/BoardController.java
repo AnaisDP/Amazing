@@ -59,6 +59,11 @@ public class BoardController implements Initializable {
     private Player player1;
     private Player player2;
 
+    Boolean waitingForCard = false;
+
+
+
+    Card tempCard;
     public Stack<Card> getDeck() {
         return deck;
     }
@@ -75,6 +80,12 @@ public class BoardController implements Initializable {
     }
 
     //region méthodes
+
+    public void WaitingForCard(Card card, Boolean bool){
+        waitingForCard = bool;
+        tempCard = card;
+
+    }
     ///Initialize a shuffled deck this is the main function to generate the deck
     public void Shuffle(){
         List<Card> list = GenerateADeck();
@@ -292,6 +303,18 @@ public class BoardController implements Initializable {
 
     public void setBoardUiP2(GridPane boardUiP2) {
         this.boardUiP2 = boardUiP2;
+    }
+
+    public Boolean getWaitingForCard() {
+        return waitingForCard;
+    }
+
+    public void setWaitingForCard(Boolean waitingForCard) {
+        this.waitingForCard = waitingForCard;
+    }
+
+    public Card getTempCard() {
+        return tempCard;
     }
     //endregion
 }

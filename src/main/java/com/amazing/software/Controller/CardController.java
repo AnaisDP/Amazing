@@ -157,16 +157,16 @@ public class CardController extends Pane {
                     String nameParentUI = node.getId();
                     System.out.println("Parent : " + nameParentUI);
                     System.out.println("Card clicked :"+card.toString());
-                    System.out.println("Joueur played :"+parent.getPlayer1().toString());
-                    String previous;
+                    Card previous;
                     switch (nameParentUI) {
                         case "handUiP1":
+                            System.out.println("Joueur played :"+parent.getPlayer1().toString());
                             parent.getPlayer1().Play(card);
                             if("Elf".equals(card.getRace().getName())) {
                                 try {
                                     System.out.println("Waiting for a card...");
-                                    int index = WaitForCard(null);
-                                    card.getRace().Power(parent.getPlayer1(), parent.getPlayer2(), parent.getDeck(), parent.getPlayer1().getBoard().get(index));
+                                    parent.WaitingForCard(card,true);
+                                    //card.getRace().Power(parent.getPlayer1(), parent.getPlayer2(), parent.getDeck(), parent.getPlayer1().getBoard().get(index));
                                 }
                                 catch (Exception e){
                                     System.out.println(e);
@@ -186,6 +186,22 @@ public class CardController extends Pane {
                                 e.printStackTrace();
                             }
                              break;
+
+                        case "boardUiP1":
+                            if(parent.getWaitingForCard()){
+                                parent.tempCard.getRace().Power(parent.getPlayer1(),parent.getPlayer2(),parent.getDeck(),card);
+                                parent.setWaitingForCard(false);
+                                try {
+                                    parent.HandUpdate();
+                                    parent.UpdateBoard();
+                                    parent.PopulationUpdate();
+                                    parent.ScoreUpdate();
+                                    parent.UpdateGameMaster("Player 1 has picked a "+card.getRace().getName());
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                            break;
                     }
                     //parent.getPlayer1().Play(card);
                     //parent.updateBoard();
