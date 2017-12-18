@@ -48,9 +48,8 @@ public class CardController extends Pane {
         this.card = card;
         URL fxmlUrl = getClass().getResource("/com.amazing.software/Card.fxml");
         FXMLLoader fxmlLoader = new FXMLLoader(fxmlUrl);
-        fxmlLoader.setRoot(pane);
         fxmlLoader.setController(this);
-        this.pane = (Pane) fxmlLoader.load();
+        this.pane =  fxmlLoader.load();
         this.parent = boardController;
         initCard();
     }
