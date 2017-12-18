@@ -138,19 +138,17 @@ public class CardController extends Pane {
         this.pane.setStyle("-fx-border-radius : ");
 
             if ("Elf".equals(this.card.getRace().getName())) {
-                this.pane.setStyle("-fx-background-color: green;");
+                this.pane.setStyle("-fx-background-image: url(/com.amazing.software/elf.jpg);");
             } else if ("Dryad".equals(this.card.getRace().getName())) {
-                this.pane.setStyle("-fx-background-color: white;");
+                this.pane.setStyle("-fx-background-image: url(/com.amazing.software/dryad.jpg);");
             } else if ("Gobelin".equals(this.card.getRace().getName())) {
-                this.pane.setStyle("-fx-background-color: blue;");
+                this.pane.setStyle("-fx-background-image: url(/com.amazing.software/goblin.jpg);");
             } else if ("Gnome".equals(this.card.getRace().getName())) {
-                this.pane.setStyle("-fx-background-color: orange;");
+                this.pane.setStyle("-fx-background-image: url(/com.amazing.software/gnome.jpg);");
             } else if ("Korrigan".equals(this.card.getRace().getName())) {
-                this.pane.setStyle("-fx-background-color: red;");
-            } else if ("Dryad".equals(this.card.getRace().getName())) {
-                this.pane.setStyle("-fx-background-color: yellow;");
+                this.pane.setStyle("-fx-background-image: url(/com.amazing.software/korrigan.jpg);");
             } else if ("Troll".equals(this.card.getRace().getName())) {
-                this.pane.setStyle("-fx-background-color: purple;");
+                this.pane.setStyle("-fx-background-image: url(/com.amazing.software/troll.jpg);");
             }
 
             this.pane.setOnMouseClicked(new EventHandler<MouseEvent>() {
