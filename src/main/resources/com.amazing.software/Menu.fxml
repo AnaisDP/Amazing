@@ -6,14 +6,10 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="menuAnchorPane" prefHeight="1080.0" prefWidth="1920.0" styleClass="background" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.amazing.software.Controller.MenuController">
+<AnchorPane id="menuAnchorPane" prefHeight="643.0" prefWidth="1243.0" styleClass="background" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.amazing.software.Controller.MenuController">
    <children>
-      <Button id="playButton" onAction="#Play" alignment="CENTER" layoutX="1271.0" layoutY="822.0" mnemonicParsing="false" opacity="0.9" prefHeight="122.0" prefWidth="217.0" text="Play">
-         <font>
-            <Font size="20.0" />
-         </font></Button>
       <Label id="title" alignment="CENTER" layoutX="86.0" layoutY="70.0" prefHeight="159.0" prefWidth="535.0" text="Amazing Game" textFill="WHITE" />
-      <Pane id="rulesPane" layoutX="85.0" layoutY="640.0" prefHeight="300.0" prefWidth="975.0" >
+      <Pane id="rulesPane" layoutX="48.0" layoutY="313.0" prefHeight="300.0" prefWidth="624.0">
          <children>
             <Label prefHeight="50.0" prefWidth="975.0" styleClass="rules" text="Rules :" />
             <Label layoutY="40.0" prefHeight="50.0" prefWidth="975.0" styleClass="rules" text="- Each player starts with 5 cards in its hand" />
@@ -22,6 +18,11 @@
             <Label layoutY="160.0" prefHeight="50.0" prefWidth="975.0" styleClass="rules" text="- The game end when a player plays its last card or if the deck is empty" />
             <Label layoutY="200.0" prefHeight="50.0" prefWidth="975.0" styleClass="rules" text="- Each card on your board worth 1 point" />
             <Label layoutY="240.0" prefHeight="50.0" prefWidth="975.0" styleClass="rules" text="- You get 3 bonus points if you have at least one card of each race " />
+            <Button id="playButton" alignment="CENTER" layoutX="860.0" layoutY="35.0" mnemonicParsing="false" onAction="#Play" opacity="0.9" prefHeight="122.0" prefWidth="217.0" text="Play">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
          </children>
       </Pane>
    </children>

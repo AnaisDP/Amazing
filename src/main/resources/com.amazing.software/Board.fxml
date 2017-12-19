@@ -11,8 +11,8 @@
 
 <AnchorPane id="background" fx:id="anchorPane" prefHeight="643.0" prefWidth="1243.0" stylesheets="@StyleCard.css" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <Pane id="back-board" layoutX="275.0" layoutY="206.0" opacity="0.9" prefHeight="254.0" prefWidth="703.0" />
-        <GridPane alignment="CENTER" layoutX="278.0" layoutY="209.0" prefHeight="250.0" prefWidth="700.0">
+        <Pane id="back-board" layoutX="128.0" layoutY="180.0" opacity="0.9" prefHeight="300.0" prefWidth="850.0" />
+        <GridPane alignment="CENTER" layoutX="128.0" layoutY="200.0" prefHeight="250.0" prefWidth="850.0">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -33,12 +33,12 @@
             </GridPane>
          </children>
       </GridPane>
-      <Pane id="deck" fx:id="pioche" layoutX="111.0" layoutY="270.0" prefHeight="167.0" prefWidth="113.0" style="-fx-background-color: blue;" styleClass="card" />
-       <Pane fx:id="backHandUiP2" centerShape="false" layoutX="278.0" layoutY="47.0" opacity="0.25" prefHeight="146.0" prefWidth="700.0" style="-fx-background-color: white;" styleClass="background-hand" />
-       <GridPane fx:id="handUiP2" alignment="CENTER" centerShape="false" layoutX="278.0" layoutY="58.0" opacity="0.3" prefHeight="125.0" prefWidth="700.0">
+      <Pane id="deck" fx:id="pioche" layoutX="19.0" layoutY="271.0" prefHeight="167.0" prefWidth="113.0" style="-fx-background-color: blue;" styleClass="card" />
+       <Pane fx:id="backHandUiP2" centerShape="false" layoutX="128.0" opacity="0.25" prefHeight="175.0" prefWidth="850.0" style="-fx-background-color: white;" styleClass="background-hand" />
+       <GridPane fx:id="handUiP2" alignment="CENTER" centerShape="false" layoutX="128.0" layoutY="4.0" opacity="0.3" prefHeight="165.0" prefWidth="850.0">
       </GridPane>
-       <Pane fx:id="backHandUiP1" centerShape="false" layoutX="278.0" layoutY="469.0" opacity="0.25" prefHeight="140.0" prefWidth="700.0" style="-fx-background-color: white;" styleClass="background-hand" />
-       <GridPane fx:id="handUiP1" layoutX="278.0" layoutY="475.0" prefHeight="125.0" prefWidth="700.0">
+       <Pane fx:id="backHandUiP1" centerShape="false" layoutX="128.0" layoutY="469.0" opacity="0.25" prefHeight="175.0" prefWidth="850.0" style="-fx-background-color: white;" styleClass="background-hand" />
+       <GridPane fx:id="handUiP1" layoutX="128.0" layoutY="475.0" prefHeight="165.0" prefWidth="850.0">
       </GridPane>
       <Label fx:id="PopJ2" layoutX="1101.0" layoutY="201.0" text="0" textFill="WHITE" />
       <Label fx:id="PopJ1" layoutX="1086.0" layoutY="416.0" text="0" textFill="WHITE" />
