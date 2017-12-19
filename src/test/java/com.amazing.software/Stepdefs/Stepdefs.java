@@ -1,4 +1,4 @@
-package com.amazing.software.Stepdefs;
+/*package com.amazing.software.Stepdefs;
 
 import com.amazing.software.Model.*;
 import com.sun.javafx.scene.control.ControlAcceleratorSupport;
@@ -41,6 +41,10 @@ public class Stepdefs {
 
     @Given("^Player1 has (\\d+) cards$")
     public void Player1(int nbCard) throws Throwable{
+        player1 = new Player();
+        player2 = new Player();
+        board = new Board(player1,player2);
+
         while (player1.getHand().size()< nbCard)
         {
             player1.Draw(board.getDeck());
@@ -57,14 +61,6 @@ public class Stepdefs {
         }
         assertEquals("Player2 should have "+nbCard+" card",nbCard,player2.getHand().size());
     }
-    @Then("^Player1 should have (\\d+) cards$")
-    public void Player1Card(int nbCard) throws Throwable{
-        assertEquals("Player1 should have "+nbCard+" card",nbCard,player1.getHand().size());
-    }
-    @Then("^Player2 should have (\\d+) cards$")
-    public void Player2Card(int nbCard) throws Throwable{
-        assertEquals("Player2 should have "+nbCard+" card",nbCard,player2.getHand().size());
-    }
 
     @Given("^Player1 has a gobelin$")
     public void SetGobelin() throws Throwable{
@@ -78,9 +74,7 @@ public class Stepdefs {
         for (Card c:player1.getHand()) {
             if (c.getRace() instanceof Gobelin)
             {
-                player1.Play(c);
-                c.getRace().Power(player1,player2,board.getDeck(),c);
-                break;
+                c.getRace().Power(player1,player2,board.getDeck(),0);
 
             }
         }
@@ -97,8 +91,7 @@ public class Stepdefs {
         for (Card c:player1.getHand()) {
             if (c.getRace() instanceof Gnome)
             {
-                player1.Play(c);
-                c.getRace().Power(player1, player2, board.getDeck(),c);
+                c.getRace().Power(player1, player2, board.getDeck(),0);
                 break;
 
             }
@@ -116,8 +109,7 @@ public class Stepdefs {
         for (Card c:player1.getHand()) {
             if (c.getRace() instanceof Korrigan)
             {
-                player1.Play(c);
-                c.getRace().Power(player1, player2, board.getDeck(),c);
+                c.getRace().Power(player1, player2, board.getDeck(),0);
                 break;
 
             }
@@ -150,15 +142,17 @@ public class Stepdefs {
 
     @When("^Player1 use Troll$")
     public void UseTroll() throws Throwable {
+        int index=0;
         for (Card c:player1.getHand()) {
             if (c.getRace() instanceof Troll)
             {
-                player1.Play(c);
-                c.getRace().Power(player1, player2, board.getDeck(),c);
+                player1.Play(index);
+                c.getRace().Power(player1, player2, board.getDeck(),0);
 
                 break;
 
             }
+            index+=1;
         }
     }
 
@@ -175,15 +169,17 @@ public class Stepdefs {
 
     @When("^Player1 use Dryad$")
     public void UseDryad() throws Throwable {
+        int index = 0;
         for (Card c:player1.getHand()) {
             if (c.getRace() instanceof Dryad)
             {
-                player1.Play(c);
-                c.getRace().Power(player1, player2, board.getDeck(),player2.getBoard().get(0));
+                player1.Play(index);
+                c.getRace().Power(player1, player2, board.getDeck(),1);
 
                 break;
 
             }
+            index+=1;
         }
     }
 
@@ -195,36 +191,17 @@ public class Stepdefs {
 
     @When("^Player2 use elf$")
     public void playerUseElf() throws Throwable {
+        int index = 0;
         for (Card c:player2.getHand()) {
             if (c.getRace() instanceof Elf)
             {
-                player2.Play(c);
-                c.getRace().Power(player2, player1, board.getDeck(),player2.getBoard().get(0));
+                player2.Play(index);
+                c.getRace().Power(player2, player1, board.getDeck(),1);
 
                 break;
 
             }
+            index+=1;
         }
     }
-
-    @Given("^The Deck is empty$")
-    public void EmptyDeck() throws  Throwable{
-        Stack<Card> emptyDeck = new Stack<>();
-        board.setDeck(emptyDeck);
-        assertEquals("there is 0 card in the deck",0,board.getDeck().size());
-    }
-
-    @And("^There is one card in the deck$")
-    public void thereIsOneCardInTheDeck() throws Throwable {
-        Stack<Card> deckWithOneCard = new Stack<>();
-        Card elf = new Card(new Elf());
-        deckWithOneCard.add(elf);
-        board.setDeck(deckWithOneCard);
-        assertEquals("there is 1 card in the deck",1,board.getDeck().size());
-    }
-
-    @When("^Player1 draw a card$")
-    public void playerDrawACard() throws Throwable {
-        player1.Draw(board.getDeck());
-    }
-}
+}*/

@@ -23,6 +23,7 @@ public class Main extends Application{
             primaryStage.show();
             BoardController boardController = loader.getController();
             boardController.StartGame();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -32,7 +33,6 @@ public class Main extends Application{
     public static void main(String[] args) {
         //Game game=new Game();
         launch(args);
-
     }
 
 }

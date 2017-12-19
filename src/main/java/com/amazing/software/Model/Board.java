@@ -14,12 +14,6 @@ public class Board {
     private Player player2;
     private Stack<Card> deck;
 
-    public void setDeck(Stack<Card> deck) {
-        this.deck = deck;
-    }
-
-
-
     public Stack<Card> getDeck() {
         return deck;
     }
@@ -81,7 +75,7 @@ public class Board {
         } else {
             card.getRace().Power(playing, opponent, this.deck, 0);
         }
-    }*/
+    }
 
     public void DistributeCards() {
 
@@ -90,7 +84,7 @@ public class Board {
             player2.Draw(this.deck);
         }
 
-    }
+    }*/
 
     public void LaunchGame() {
         //Distribute 5 card to each

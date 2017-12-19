@@ -51,9 +51,6 @@ public class Player {
     }
 
     public Card Draw(Stack<Card> deck){
-        if (deck.isEmpty()) {
-            return null;
-        }
         Card card = deck.pop();
         hand.add(card);
         return card;
@@ -63,4 +60,9 @@ public class Player {
         this.board.add(card);
         hand.remove(card);
     }
+
+
+
+
+
 }

@@ -5,14 +5,47 @@ Scenario: Launch Game
     Then they have 0 cards
     When I Distribute Cards
     Then  they have 5 cards
-  
-Scenario: Draw Card
-  Given Player1 has 2 cards
-  When Player1 draw a card
-  Then Player1 should have 3 cards
-  
-Scenario: Draw card with an empty deck
-  Given Player1 has 2 cards
-  And The Deck is empty
-  When Player1 draw a card
-  Then Player1 should have 2 cards
+
+Scenario: Gobelin's power
+  Given Player1 has 0 cards
+  And Player2 has 3 cards
+  And Player1 has a gobelin
+  When Player1 use gobelin
+  Then Player1 has 3 cards
+  And Player2 has 0 cards
+
+Scenario: Gnome's Power
+    Given Player1 has 0 cards
+    And Player1 has a Gnome
+    When Player1 use Gnome
+    Then Player1 has 2 cards
+
+Scenario: Korrigan's Power
+    Given Player1 has 0 cards
+    And Player2 has 3 cards
+    And Player1 has a korrigan
+    When Player1 use korrigan
+    Then Player1 has 2 cards
+    And Player2 has 1 cards
+
+Scenario: Troll's Power
+  Given Player1 has 0 cards on his board
+  And Player2 has 2 cards on his board
+  And Player1 has a Troll
+  When Player1 use Troll
+  Then Player2 has 1 card on his board
+  And Player1 has 2 cards on his board
+
+Scenario: Dryad's Power
+  Given Player1 has 0 cards on his board
+  And Player2 has 3 cards on his board
+  And  Player1 has a Dryad
+  When Player1 use Dryad
+  Then Player2 has 2 card on his board
+  And Player1 has 2 cards on his board
+
+Scenario: Elf's Power
+  Given Player2 has 3 cards on his board
+  And Player2 has an elf
+  When Player2 use elf
+  Then  Player2 has 2 cards
