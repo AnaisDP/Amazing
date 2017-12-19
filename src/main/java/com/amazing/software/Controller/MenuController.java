@@ -25,16 +25,16 @@ public class MenuController {
         gameStage.setScene(scene);
         gameStage.show();*/
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.amazing.software/Victory.fxml"));
+        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.amazing.software/Victory.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage gameStage = new Stage();
         scene.getStylesheets().add(getClass().getResource("/com.amazing.software/Style.css").toExternalForm());
         gameStage.setScene(scene);
-        gameStage.show();
+        gameStage.show();*/
 
 
-        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.amazing.software/Board.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.amazing.software/Board.fxml"));
         loader.setController(new BoardController());
         Parent root = loader.load();
         Scene scene = new Scene(root);
@@ -43,7 +43,7 @@ public class MenuController {
         gameStage.setScene(scene);
         gameStage.show();
         BoardController boardController = loader.getController();
-        boardController.StartGame();*/
+        boardController.StartGame();
     }
 
 
