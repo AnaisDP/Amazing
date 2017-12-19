@@ -6,6 +6,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.ColumnConstraints;
@@ -17,7 +20,10 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.RowConstraints;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
+
 import java.awt.*;
+import java.io.IOException;
 import java.net.URL;
 import java.util.*;
 import java.util.List;
@@ -81,6 +87,7 @@ public class BoardController implements Initializable {
         player2.Draw(deck);
         this.ia=new IA(player2,player1);
         int index=ia.makeMove();
+        player2.Play(player2.getHand().get(index));
         if(player2.getHand().get(index).getRace().getName()=="Elf"){
             int index2=ia.chooseCardBoard();
             player2.getHand().get(index).getRace().Power(player2,player1,deck,player2.getBoard().get(index2));
@@ -91,7 +98,6 @@ public class BoardController implements Initializable {
         else{
             player2.getHand().get(index).getRace().Power(player2,player1,deck,null);
         }
-        player2.Play(player2.getHand().get(index));
         player1.Draw(deck);
     }
     //region méthodes
@@ -140,6 +146,29 @@ public class BoardController implements Initializable {
     //endregion
 
     //region Update
+    public void updateendgame() throws IOException {
+        if(player1.getHand().isEmpty() ||player2.getHand().isEmpty()){
+            if(player1.getScore()>=player2.getScore()){
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.amazing.software/Victory.fxml"));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                Stage gameStage = new Stage();
+                scene.getStylesheets().add(getClass().getResource("/com.amazing.software/Style.css").toExternalForm());
+                gameStage.setScene(scene);
+                gameStage.show();
+            }
+            else{
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.amazing.software/Defeat.fxml"));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                Stage gameStage = new Stage();
+                scene.getStylesheets().add(getClass().getResource("/com.amazing.software/Style.css").toExternalForm());
+                gameStage.setScene(scene);
+                gameStage.show();
+            }
+        }
+
+    }
     public void UpdateBoard() throws Exception {
         boardUiP1.getChildren().clear();
         boardUiP1.getColumnConstraints().clear();
@@ -300,8 +329,6 @@ public class BoardController implements Initializable {
     private void InitGameMaster(){
 
     }
-
-
 
     //endregion
 

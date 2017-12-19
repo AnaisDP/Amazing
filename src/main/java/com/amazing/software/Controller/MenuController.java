@@ -23,9 +23,9 @@ public class MenuController {
         Stage gameStage = new Stage();
         scene.getStylesheets().add(getClass().getResource("/com.amazing.software/Style.css").toExternalForm());
         gameStage.setScene(scene);
-        gameStage.show();
+        gameStage.show();*/
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.amazing.software/Victory.fxml"));
+        /*FXMLLoader loader = new FXMLLoader(getClass().getResource("/com.amazing.software/Victory.fxml"));
         Parent root = loader.load();
         Scene scene = new Scene(root);
         Stage gameStage = new Stage();

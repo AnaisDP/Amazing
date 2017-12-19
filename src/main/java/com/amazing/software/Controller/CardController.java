@@ -94,13 +94,14 @@ public class CardController extends Pane {
                             if(!parent.getWaitingForCard()) {
                                 System.out.println("Joueur played :" + parent.getPlayer1().toString());
                                 parent.getPlayer1().Play(card);
-                                if ("Elf".equals(card.getRace().getName())) {
+                                if ("Elf".equals(card.getRace().getName()) && parent.getPlayer1().getBoard().size()>1) {
                                     try {
                                         try {
                                             parent.HandUpdate();
                                             parent.UpdateBoard();
                                             parent.PopulationUpdate();
                                             parent.ScoreUpdate();
+                                            parent.updateendgame();
                                             parent.UpdateGameMaster("You must pick a card in your area.");
                                         } catch (Exception e) {
                                             e.printStackTrace();
@@ -111,12 +112,13 @@ public class CardController extends Pane {
                                     } catch (Exception e) {
                                         System.out.println(e);
                                     }
-                                } else if("Dryad".equals(card.getRace().getName())){
+                                } else if("Dryad".equals(card.getRace().getName()) && !parent.getPlayer2().getBoard().isEmpty()){
                                     try {
                                         parent.HandUpdate();
                                         parent.UpdateBoard();
                                         parent.PopulationUpdate();
                                         parent.ScoreUpdate();
+                                        parent.updateendgame();
                                         parent.UpdateGameMaster("You must pick a card in enemie area.");
                                         } catch (Exception e) {
                                         System.out.println(e);
@@ -129,6 +131,7 @@ public class CardController extends Pane {
                                         parent.UpdateBoard();
                                         parent.PopulationUpdate();
                                         parent.ScoreUpdate();
+                                        parent.updateendgame();
                                         parent.UpdateGameMaster("Player 1 has played a " + card.getRace().getName());
                                     } catch (Exception e) {
                                         e.printStackTrace();
@@ -150,6 +153,7 @@ public class CardController extends Pane {
                                     parent.UpdateBoard();
                                     parent.PopulationUpdate();
                                     parent.ScoreUpdate();
+                                    parent.updateendgame();
                                     parent.UpdateGameMaster("Player 1 has picked a "+card.getRace().getName());
                                 } catch (Exception e) {
                                     e.printStackTrace();
@@ -168,6 +172,7 @@ public class CardController extends Pane {
                                     parent.UpdateBoard();
                                     parent.PopulationUpdate();
                                     parent.ScoreUpdate();
+                                    parent.updateendgame();
                                     parent.UpdateGameMaster("Player 1 has picked a "+card.getRace().getName());
                                 } catch (Exception e) {
                                     e.printStackTrace();
@@ -187,6 +192,7 @@ public class CardController extends Pane {
                             parent.UpdateBoard();
                             parent.PopulationUpdate();
                             parent.ScoreUpdate();
+                            parent.updateendgame();
                             parent.UpdateGameMaster("Player 1 has picked a "+card.getRace().getName());
                         } catch (Exception e) {
                             e.printStackTrace();
