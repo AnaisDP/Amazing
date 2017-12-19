@@ -160,30 +160,33 @@ public class CardController extends Pane {
                     Card previous;
                     switch (nameParentUI) {
                         case "handUiP1":
-                            System.out.println("Joueur played :"+parent.getPlayer1().toString());
-                            parent.getPlayer1().Play(card);
-                            if("Elf".equals(card.getRace().getName())) {
-                                try {
-                                    System.out.println("Waiting for a card...");
-                                    parent.WaitingForCard(card,true);
-                                    //card.getRace().Power(parent.getPlayer1(), parent.getPlayer2(), parent.getDeck(), parent.getPlayer1().getBoard().get(index));
-                                }
-                                catch (Exception e){
-                                    System.out.println(e);
-                                }
+                            if(!parent.getWaitingForCard()) {
+                                System.out.println("Joueur played :" + parent.getPlayer1().toString());
+                                parent.getPlayer1().Play(card);
+                                if ("Elf".equals(card.getRace().getName())) {
+                                    try {
+                                        System.out.println("Waiting for a card...");
+                                        parent.WaitingForCard(card, true);
+                                        //card.getRace().Power(parent.getPlayer1(), parent.getPlayer2(), parent.getDeck(), parent.getPlayer1().getBoard().get(index));
+                                    } catch (Exception e) {
+                                        System.out.println(e);
+                                    }
 
+                                } else {
+                                    card.getRace().Power(parent.getPlayer1(), parent.getPlayer2(), parent.getDeck(), null);
+                                    try {
+                                        parent.HandUpdate();
+                                        parent.UpdateBoard();
+                                        parent.PopulationUpdate();
+                                        parent.ScoreUpdate();
+                                        parent.UpdateGameMaster("Player 1 has played a " + card.getRace().getName());
+                                    } catch (Exception e) {
+                                        e.printStackTrace();
+                                    }
+                                }
                             }
-                            else {
-                                card.getRace().Power(parent.getPlayer1(), parent.getPlayer2(), parent.getDeck(), null);
-                            }
-                            try {
-                                parent.HandUpdate();
-                                parent.UpdateBoard();
-                                parent.PopulationUpdate();
-                                parent.ScoreUpdate();
-                                parent.UpdateGameMaster("Player 1 has played a "+card.getRace().getName());
-                            } catch (Exception e) {
-                                e.printStackTrace();
+                            else{
+                                parent.UpdateGameMaster("You must pick a card in your area");
                             }
                              break;
 
