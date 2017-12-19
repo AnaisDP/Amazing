@@ -75,7 +75,7 @@ public class Board {
         } else {
             card.getRace().Power(playing, opponent, this.deck, 0);
         }
-    }
+    }*/
 
     public void DistributeCards() {
 
@@ -84,7 +84,7 @@ public class Board {
             player2.Draw(this.deck);
         }
 
-    }*/
+    }
 
     public void LaunchGame() {
         //Distribute 5 card to each
@@ -159,6 +159,10 @@ public class Board {
             System.out.print(" / ");
         }
         System.out.println("");
+    }
+
+    public void setDeck(Stack<Card> deck) {
+        this.deck = deck;
     }
 }
 
