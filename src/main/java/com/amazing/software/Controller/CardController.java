@@ -205,7 +205,7 @@ public class CardController extends Pane {
 
                         case "boardUiP1":
                             if(parent.getWaitingForCard()){
-                                parent.tempCard.getRace().Power(parent.getPlayer1(),parent.getPlayer2(),parent.getDeck(),card);
+                                parent.getTempCard().getRace().Power(parent.getPlayer1(),parent.getPlayer2(),parent.getDeck(),card);
                                 parent.setWaitingForCard(false);
                                 try {
                                     parent.HandUpdate();
@@ -220,7 +220,7 @@ public class CardController extends Pane {
                             break;
                         case "boardUiP2":
                             if(parent.getWaitingForCard()){
-                                parent.tempCard.getRace().Power(parent.getPlayer1(),parent.getPlayer2(),parent.getDeck(),card);
+                                parent.getTempCard().getRace().Power(parent.getPlayer1(),parent.getPlayer2(),parent.getDeck(),card);
                                 parent.setWaitingForCard(false);
                                 try {
 

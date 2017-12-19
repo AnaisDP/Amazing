@@ -44,6 +44,23 @@ public class BoardController implements Initializable {
     private GridPane handUiP2; // Ui handPlayer du joueur 2
     @FXML
     private Pane pioche; //Ui pour la pioche
+
+    public GridPane getBoardUiP1() {
+        return boardUiP1;
+    }
+
+    public void setBoardUiP1(GridPane boardUiP1) {
+        this.boardUiP1 = boardUiP1;
+    }
+
+    public GridPane getBoardUiP2() {
+        return boardUiP2;
+    }
+
+    public void setBoardUiP2(GridPane boardUiP2) {
+        this.boardUiP2 = boardUiP2;
+    }
+
     @FXML
     private GridPane boardUiP1; //Ui pour le terrain du joueur 1
     @FXML
@@ -61,8 +78,26 @@ public class BoardController implements Initializable {
     }
 
     private Stack<Card> deck;
-    //endregion
 
+    public boolean getWaitingForCard() {
+        return waitingForCard;
+    }
+
+    public void setWaitingForCard(boolean waitingForCard) {
+        this.waitingForCard = waitingForCard;
+    }
+
+    public Card getTempCard() {
+        return tempCard;
+    }
+
+    public void setTempCard(Card tempCard) {
+        this.tempCard = tempCard;
+    }
+
+    private boolean waitingForCard=false;
+    private Card tempCard;
+    //endregion
 
     public BoardController() throws Exception{
         this.player1 = new Player();
@@ -103,6 +138,10 @@ public class BoardController implements Initializable {
     ///First function to call in the main
     public void StartGame()throws Exception{
         DistributeCards();
+    }
+    public void WaitingForCard(Card card,Boolean bool){
+        waitingForCard=bool;
+        tempCard=card;
     }
 
     //endregion
