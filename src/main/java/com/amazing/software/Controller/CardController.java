@@ -2,6 +2,7 @@ package com.amazing.software.Controller;
 
 import com.amazing.software.Main;
 import com.amazing.software.Model.Card;
+import com.amazing.software.Model.IA;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -29,7 +30,6 @@ import java.util.ResourceBundle;
 public class CardController extends Pane {
 
     BoardController parent;
-
     @FXML
     Pane pane;
 
@@ -171,6 +171,18 @@ public class CardController extends Pane {
                                 }
                             }
                             break;
+                    }
+                    if(!parent.getWaitingForCard() || !parent.getWaitingForCard2()){
+                        try {
+                            parent.turnIA();
+                            parent.HandUpdate();
+                            parent.UpdateBoard();
+                            parent.PopulationUpdate();
+                            parent.ScoreUpdate();
+                            parent.UpdateGameMaster("Player 1 has picked a "+card.getRace().getName());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                     //parent.getPlayer1().Play(card);
                     //parent.updateBoard();
