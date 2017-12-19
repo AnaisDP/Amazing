@@ -82,7 +82,7 @@ public class IA {
         else if(nbofGobelin>0 && opponnent.getHand().size()>self.getHand().size()){
             return  getIndexOf("Gobelin",self.getHand());
         }
-        else if(nbofTroll>0 && opponnent.getBoard().size()+1>self.getBoard().size()){
+        else if(nbofTroll>0 && opponnent.getBoard().size()>self.getBoard().size()+1){
             return  getIndexOf("Troll",self.getHand());
         }
         else if(nbofGnome>0){
