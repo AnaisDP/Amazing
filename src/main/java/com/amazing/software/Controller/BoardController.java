@@ -45,7 +45,6 @@ public class BoardController implements Initializable {
     @FXML
     private Pane pioche; //Ui pour la pioche
 
-
     @FXML
     private GridPane boardUiP1; //Ui pour le terrain du joueur 1
     @FXML
@@ -194,6 +193,9 @@ public class BoardController implements Initializable {
     public void UpdateGameMaster(String message){
         gameMasterText.setText("\n"+ message);
     }
+    public void UpdateNbCard(){
+
+    }
     public void UpdateDeckFinished(){
         pioche.setVisible(false);
         pioche.setDisable(true);
@@ -283,12 +285,12 @@ public class BoardController implements Initializable {
     }
     private void InitBoardUi(){
         //Space between 2 card
-        this.boardUiP1.setVgap(15);
-        this.boardUiP1.setHgap(15);
+        this.boardUiP1.setVgap(0);
+        this.boardUiP1.setHgap(-1);
         this.boardUiP1.setAlignment(Pos.CENTER);
         //Space between 2 card
-        this.boardUiP2.setVgap(15);
-        this.boardUiP2.setHgap(15);
+        this.boardUiP2.setVgap(0);
+        this.boardUiP2.setHgap(-1);
         this.boardUiP2.setAlignment(Pos.CENTER);
         //Initialisation du GridPane avec 1 ligne (boardPlayer vide)
         final RowConstraints rowConstraints = new RowConstraints();

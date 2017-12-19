@@ -12,6 +12,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.SnapshotParameters;
+import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
@@ -32,6 +33,12 @@ public class CardController extends Pane {
     @FXML
     Pane pane;
 
+    @FXML
+    private Pane paneNbCard;
+
+    @FXML
+    private Label labelNbCard;
+
     Card card;
 
     int index = 0;
@@ -51,93 +58,11 @@ public class CardController extends Pane {
         fxmlLoader.setController(this);
         this.pane = (Pane) fxmlLoader.load();
         this.parent = boardController;
+        this.labelNbCard.setText("0");
+        this.paneNbCard.setVisible(false);
         initCard();
     }
 
-    public int WaitForCard(Node node) throws Exception{
-        indexcard=-1;
-        GridPane grid = (GridPane)node;
-        //Remove all listener
-        for(int i = 0; i < parent.getHandUiP1().getColumnConstraints().size() ; i++) {
-            parent.getHandUiP1().getChildren().get(i).setOnMouseClicked(null);
-        }
-        int count = 0;
-        while(count < 10 || indexcard != -1){ //Player have 30sec to choose a card
-        //Add listener on gridUIP2
-        Card card = null;
-        for(int i = 0; i < parent.getBoardUiP1().getColumnConstraints().size();i++){
-            parent.getBoardUiP1().getChildren().get(i).setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    for(int i =0 ; i < parent.getBoardUiP1().getColumnConstraints().size();i++){
-                        if(parent.getBoardUiP1().getChildren().get(i) == parent.getBoardUiP1().getChildren().get(index)){
-                            System.out.println("La carte choisit est a l'index :" + i);
-                            indexcard=i;
-                        }
-                    }
-                    System.out.println("Card waited :"+parent.getBoardUiP1().getChildren().get(index));
-                }
-            });
-        }
-            //Thread.sleep(1000);
-            //System.out.println(count);
-            count += 1;
-        }
-        for(int i = 0; i < parent.getBoardUiP1().getColumnConstraints().size() ; i++) {
-            parent.getBoardUiP1().getChildren().get(i).setOnMouseClicked(null);
-        }
-
-        for(int i = 0 ; i < parent.getHandUiP1().getColumnConstraints().size();i++) {
-            this.parent.getHandUiP1().getChildren().get(i).setOnMouseClicked(new EventHandler<MouseEvent>() {
-                @Override
-                public void handle(MouseEvent event) {
-                    Node node = pane.getParent();
-                    String nameParentUI = node.getId();
-                    System.out.println("Parent : " + nameParentUI);
-                    System.out.println("Card clicked :" + card.toString());
-                    System.out.println("Joueur played :" + parent.getPlayer1().toString());
-                    String previous;
-                    switch (nameParentUI) {
-                        case "handUiP1":
-                            parent.getPlayer1().Play(card);
-                            if ("Elf".equals(card.getRace().getName())) {
-                                try {
-                                    int index = WaitForCard(null);
-                                    card.getRace().Power(parent.getPlayer1(), parent.getPlayer2(), parent.getDeck(), parent.getPlayer1().getBoard().get(index));
-                                } catch (Exception e) {
-                                    System.out.println(e);
-                                }
-
-                            }else if("Dryad".equals(card.getRace().getName())){
-                                try {
-                                    int index = WaitForCard(null);
-                                    card.getRace().Power(parent.getPlayer1(), parent.getPlayer2(), parent.getDeck(), parent.getPlayer2().getBoard().get(index));
-                                } catch (Exception e) {
-                                    System.out.println(e);
-                                }
-                            } else {
-                                card.getRace().Power(parent.getPlayer1(), parent.getPlayer2(), parent.getDeck(), null);
-                            }
-                            try {
-                                parent.HandUpdate();
-                                parent.UpdateBoard();
-                                parent.PopulationUpdate();
-                                parent.ScoreUpdate();
-                                parent.UpdateGameMaster("Player 1 has played a " + card.getRace().getName());
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                            break;
-                    }
-                    //parent.getPlayer1().Play(card);
-                    //parent.updateBoard();
-                }
-            });
-        }
-        //Return card clicked
-        index = 0;
-        return  indexcard;
-    }
     private void initCard() throws Exception {
         this.pane.setEffect(new DropShadow(20, Color.WHITE));
         this.pane.setStyle("-fx-border-color: black;"); //Initialize card here
@@ -213,6 +138,7 @@ public class CardController extends Pane {
                             else{
                                 parent.UpdateGameMaster("You must pick a card in your area");
                             }
+                            labelNbCard.setVisible(true);
                              break;
 
                         case "boardUiP1":
@@ -233,7 +159,7 @@ public class CardController extends Pane {
                         case "boardUiP2":
                             if(parent.getWaitingForCard2()){
                                 parent.getTempCard().getRace().Power(parent.getPlayer1(),parent.getPlayer2(),parent.getDeck(),card);
-                                parent.setWaitingForCard(false);
+                                parent.setWaitingForCard2(false);
                                 try {
                                     parent.HandUpdate();
                                     parent.UpdateBoard();

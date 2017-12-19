@@ -56,6 +56,16 @@ public class Player {
         return card;
     }
 
+    public int CountRace(Race race){
+        int count = 0;
+        for(Card card : this.board){
+            if(card.getRace().getName().equals(race.getName()) ){
+                count++;
+            }
+        }
+        return count;
+    }
+
     public void Play(Card card){
         this.board.add(card);
         hand.remove(card);
