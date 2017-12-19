@@ -29,7 +29,6 @@ import java.util.ResourceBundle;
 public class CardController extends Pane {
 
     BoardController parent;
-    private IA ia;
     @FXML
     Pane pane;
 
@@ -247,8 +246,18 @@ public class CardController extends Pane {
                             }
                             break;
                     }
-                   int index=ia.makeMove();
-                    
+                    if(!parent.getWaitingForCard() || !parent.getWaitingForCard2()){
+                        try {
+                            parent.turnIA();
+                            parent.HandUpdate();
+                            parent.UpdateBoard();
+                            parent.PopulationUpdate();
+                            parent.ScoreUpdate();
+                            parent.UpdateGameMaster("Player 1 has picked a "+card.getRace().getName());
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
                     //parent.getPlayer1().Play(card);
                     //parent.updateBoard();
                 }

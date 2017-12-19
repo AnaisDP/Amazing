@@ -57,7 +57,7 @@ public class BoardController implements Initializable {
     //Variable pour le jeu
     private Player player1;
     private Player player2;
-
+    private IA ia;
     public Stack<Card> getDeck() {
         return deck;
     }
@@ -78,7 +78,23 @@ public class BoardController implements Initializable {
         this.deck = new Stack<Card>();
         Shuffle();
     }
+    public void turnIA(){
+        player2.Draw(deck);
+        this.ia=new IA(player2,player1);
+        int index=ia.makeMove();
+        if(player2.getHand().get(index).getRace().getName()=="Elf"){
+            int index2=ia.chooseCardBoard();
+            player2.getHand().get(index).getRace().Power(player2,player1,deck,player2.getBoard().get(index2));
+        }
+        else if(player2.getHand().get(index).getRace().getName()=="Dryad"){
 
+        }
+        else{
+            player2.getHand().get(index).getRace().Power(player2,player1,deck,null);
+        }
+        player2.Play(player2.getHand().get(index));
+        player1.Draw(deck);
+    }
     //region méthodes
     ///Initialize a shuffled deck this is the main function to generate the deck
     public void Shuffle(){
