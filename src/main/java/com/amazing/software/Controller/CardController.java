@@ -94,7 +94,7 @@ public class CardController extends Pane {
                             if(!parent.getWaitingForCard()) {
                                 System.out.println("Joueur played :" + parent.getPlayer1().toString());
                                 parent.getPlayer1().Play(card);
-                                if ("Elf".equals(card.getRace().getName())) {
+                                if ("Elf".equals(card.getRace().getName()) && parent.getPlayer1().getBoard().size()>1) {
                                     try {
                                         try {
                                             parent.HandUpdate();
@@ -111,7 +111,7 @@ public class CardController extends Pane {
                                     } catch (Exception e) {
                                         System.out.println(e);
                                     }
-                                } else if("Dryad".equals(card.getRace().getName())){
+                                } else if("Dryad".equals(card.getRace().getName()) && !parent.getPlayer2().getBoard().isEmpty()){
                                     try {
                                         parent.HandUpdate();
                                         parent.UpdateBoard();

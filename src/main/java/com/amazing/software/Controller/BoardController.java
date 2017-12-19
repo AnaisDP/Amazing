@@ -81,6 +81,7 @@ public class BoardController implements Initializable {
         player2.Draw(deck);
         this.ia=new IA(player2,player1);
         int index=ia.makeMove();
+        player2.Play(player2.getHand().get(index));
         if(player2.getHand().get(index).getRace().getName()=="Elf"){
             int index2=ia.chooseCardBoard();
             player2.getHand().get(index).getRace().Power(player2,player1,deck,player2.getBoard().get(index2));
@@ -91,7 +92,6 @@ public class BoardController implements Initializable {
         else{
             player2.getHand().get(index).getRace().Power(player2,player1,deck,null);
         }
-        player2.Play(player2.getHand().get(index));
         player1.Draw(deck);
     }
     //region méthodes
@@ -300,8 +300,6 @@ public class BoardController implements Initializable {
     private void InitGameMaster(){
 
     }
-
-
 
     //endregion
 
