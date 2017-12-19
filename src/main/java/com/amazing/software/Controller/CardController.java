@@ -155,6 +155,9 @@ public class CardController extends Pane {
                                     e.printStackTrace();
                                 }
                             }
+                            else {
+                                return;
+                            }
                             break;
                         case "boardUiP2":
                             if(parent.getWaitingForCard2()){
@@ -170,9 +173,14 @@ public class CardController extends Pane {
                                     e.printStackTrace();
                                 }
                             }
+                            else{
+                                return;
+                            }
                             break;
+                        case "handUiP2":
+                            return;
                     }
-                    if(!parent.getWaitingForCard() || !parent.getWaitingForCard2()){
+                    if(!parent.getWaitingForCard() && !parent.getWaitingForCard2()){
                         try {
                             parent.turnIA();
                             parent.HandUpdate();

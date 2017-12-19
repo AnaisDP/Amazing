@@ -269,15 +269,15 @@ public class BoardController implements Initializable {
     private void InitHandUi(){
 
         //Space between 2 card
-        this.handUiP1.setVgap(15);
-        this.handUiP1.setHgap(15);
+        this.handUiP1.setVgap(0);
+        this.handUiP1.setHgap(-1);
         this.handUiP1.setAlignment(Pos.CENTER);
         //Initialisation du GridPane avec 1 ligne (handPlayer vide)
         final RowConstraints rowConstraints = new RowConstraints();
         this.handUiP1.getRowConstraints().add(rowConstraints);
 
-        this.handUiP2.setVgap(15);
-        this.handUiP2.setHgap(15);
+        this.handUiP2.setVgap(0);
+        this.handUiP2.setHgap(-1);
         this.handUiP2.setAlignment(Pos.CENTER);
         //Initialisation du GridPane avec 1 ligne (handPlayer vide)
         final RowConstraints rowConstraints1 = new RowConstraints();
