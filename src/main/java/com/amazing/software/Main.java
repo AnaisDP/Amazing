@@ -14,12 +14,15 @@ public class Main extends Application{
     @Override
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/com.amazing.software/Menu.fxml"));
+            FXMLLoader loader = new FXMLLoader(Main.class.getResource("/com.amazing.software/Board.fxml"));
+            loader.setController(new BoardController());
             Parent root = loader.load();
             Scene scene = new Scene(root);
-            scene.getStylesheets().add(getClass().getResource("/com.amazing.software/Style.css").toExternalForm());
+            scene.getStylesheets().add(getClass().getResource("/com.amazing.software/StyleCard.css").toExternalForm());
             primaryStage.setScene(scene);
             primaryStage.show();
+            BoardController boardController = loader.getController();
+            boardController.StartGame();
 
         } catch (Exception e) {
             e.printStackTrace();
