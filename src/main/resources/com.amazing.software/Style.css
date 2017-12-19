@@ -1,0 +1,32 @@
+.background {
+    -fx-background-image: url("background.jpeg");
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: cover;
+}
+
+.rules {
+    -fx-text-fill: white;
+    -fx-font-family: "Book Antiqua", Georgia, Serif;
+    -fx-font-size: 30px;
+    -fx-padding: 5px;
+}
+
+#rulesPane {
+    -fx-background-color: rgba(0, 0, 0, .1);
+}
+
+#playButton {
+    -fx-background-color: rgba(0, 255, 255, .3);
+    -fx-background-radius: 30px;
+    -fx-text-fill: white;
+    -fx-font-family: "Book Antiqua", Georgia, Serif;
+    -fx-font-size: 50px;
+    -fx-border-radius: 20px;
+    -fx-overflow: hidden;
+    -fx-alignment: center;
+}
+
+#title {
+    -fx-font-family: "Book Antiqua", Georgia, Serif;
+    -fx-font-size: 70px;
+}
