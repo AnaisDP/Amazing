@@ -1,7 +1,6 @@
 package com.amazing.software.Model;
 
-import java.util.List;
-import java.util.Scanner;
+
 import java.util.Stack;
 
 public class Elf extends Race {

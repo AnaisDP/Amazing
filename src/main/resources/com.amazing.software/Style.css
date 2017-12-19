@@ -1,5 +1,5 @@
 .background {
-    -fx-background-image: url("background.jpeg");
+    -fx-background-image: url("background.jpg");
     -fx-background-repeat: no-repeat;
     -fx-background-size: cover;
 }
@@ -7,7 +7,7 @@
 .rules {
     -fx-text-fill: white;
     -fx-font-family: "Book Antiqua", Georgia, Serif;
-    -fx-font-size: 30px;
+    -fx-font-size: 20px;
     -fx-padding: 5px;
 }
 
@@ -33,7 +33,7 @@
 
 #defeat {
     -fx-font-family: "Book Antiqua", Georgia, Serif;
-    -fx-font-size: 300px;
+    -fx-font-size: 200px;
     -fx-text-fill: red;
 }
 
@@ -49,7 +49,7 @@
 
 #victory {
     -fx-font-family: "Book Antiqua", Georgia, Serif;
-    -fx-font-size: 300px;
+    -fx-font-size: 200px;
     -fx-text-fill: rgba(255, 215, 0, 1);
 }
 

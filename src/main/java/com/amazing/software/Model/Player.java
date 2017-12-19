@@ -1,9 +1,5 @@
 package com.amazing.software.Model;
 
-import javafx.beans.property.ListProperty;
-import javafx.beans.property.SimpleListProperty;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 
 import java.util.ArrayList;
 import java.util.List;

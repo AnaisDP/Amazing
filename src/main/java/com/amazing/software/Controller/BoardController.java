@@ -1,20 +1,13 @@
 package com.amazing.software.Controller;
 
 import com.amazing.software.Model.*;
-import cucumber.api.java.hu.Ha;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TextField;
-import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.ColumnConstraints;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Pane;
-import javafx.scene.layout.RowConstraints;
 import javafx.scene.layout.ColumnConstraints;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -22,20 +15,16 @@ import javafx.scene.layout.RowConstraints;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
-import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
-import java.util.*;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.ResourceBundle;
 import java.util.Stack;
 
 public class BoardController implements Initializable {
 
     //region attributs
-    //TODO assigné dans la vue
     @FXML
     private Label PopJ1;
     @FXML

@@ -1,7 +1,6 @@
 package com.amazing.software;
 
-import com.amazing.software.Controller.BoardController;
-import com.amazing.software.Model.Game;
+
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

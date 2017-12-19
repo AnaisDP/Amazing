@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.Pane?>
 
 
-<Pane fx:id="pane" prefHeight="140.0" prefWidth="105.0" style="-fx-background-color: orange;" styleClass="card" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
+<Pane fx:id="pane" prefHeight="200.0" prefWidth="150.0" style="-fx-background-color: orange;" styleClass="card" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Pane fx:id="paneNbCard" layoutX="73.0" layoutY="-5.0" prefHeight="39.0" prefWidth="36.0">
          <children>

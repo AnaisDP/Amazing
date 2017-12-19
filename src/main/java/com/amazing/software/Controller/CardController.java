@@ -1,31 +1,18 @@
 package com.amazing.software.Controller;
 
-import com.amazing.software.Main;
 import com.amazing.software.Model.Card;
-import com.amazing.software.Model.IA;
-import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.SnapshotParameters;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.stage.Stage;
 import javafx.scene.paint.Color;
 
-import javax.swing.border.Border;
-import java.awt.*;
-import java.io.IOException;
 import java.net.URL;
-import java.util.List;
-import java.util.Objects;
-import java.util.ResourceBundle;
+
 
 public class CardController extends Pane {
 
