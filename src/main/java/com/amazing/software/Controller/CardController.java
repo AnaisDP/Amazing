@@ -164,7 +164,6 @@ public class CardController extends Pane {
                     String nameParentUI = node.getId();
                     System.out.println("Parent : " + nameParentUI);
                     System.out.println("Card clicked :"+card.toString());
-                    Card previous;
                     switch (nameParentUI) {
                         case "handUiP1":
                             if(!parent.getWaitingForCard()) {
@@ -172,7 +171,16 @@ public class CardController extends Pane {
                                 parent.getPlayer1().Play(card);
                                 if ("Elf".equals(card.getRace().getName())) {
                                     try {
-                                        System.out.println("Waiting for a card...");
+                                        try {
+                                            parent.HandUpdate();
+                                            parent.UpdateBoard();
+                                            parent.PopulationUpdate();
+                                            parent.ScoreUpdate();
+                                            parent.UpdateGameMaster("You must pick a card in your area.");
+                                        } catch (Exception e) {
+                                            e.printStackTrace();
+                                        }
+
                                         parent.WaitingForCard(card, true);
                                         //card.getRace().Power(parent.getPlayer1(), parent.getPlayer2(), parent.getDeck(), parent.getPlayer1().getBoard().get(index));
                                     } catch (Exception e) {
@@ -180,11 +188,15 @@ public class CardController extends Pane {
                                     }
                                 } else if("Dryad".equals(card.getRace().getName())){
                                     try {
-                                        int index = WaitForCard(null);
-                                        card.getRace().Power(parent.getPlayer1(), parent.getPlayer2(), parent.getDeck(), parent.getPlayer2().getBoard().get(index));
-                                    } catch (Exception e) {
+                                        parent.HandUpdate();
+                                        parent.UpdateBoard();
+                                        parent.PopulationUpdate();
+                                        parent.ScoreUpdate();
+                                        parent.UpdateGameMaster("You must pick a card in enemie area.");
+                                        } catch (Exception e) {
                                         System.out.println(e);
                                     }
+                                    parent.WaitingForCard2(card,true);
                                 }else {
                                     card.getRace().Power(parent.getPlayer1(), parent.getPlayer2(), parent.getDeck(), null);
                                     try {
@@ -219,11 +231,14 @@ public class CardController extends Pane {
                             }
                             break;
                         case "boardUiP2":
-                            if(parent.getWaitingForCard()){
+                            if(parent.getWaitingForCard2()){
                                 parent.getTempCard().getRace().Power(parent.getPlayer1(),parent.getPlayer2(),parent.getDeck(),card);
                                 parent.setWaitingForCard(false);
                                 try {
-
+                                    parent.HandUpdate();
+                                    parent.UpdateBoard();
+                                    parent.PopulationUpdate();
+                                    parent.ScoreUpdate();
                                     parent.UpdateGameMaster("Player 1 has picked a "+card.getRace().getName());
                                 } catch (Exception e) {
                                     e.printStackTrace();

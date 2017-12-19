@@ -45,21 +45,6 @@ public class BoardController implements Initializable {
     @FXML
     private Pane pioche; //Ui pour la pioche
 
-    public GridPane getBoardUiP1() {
-        return boardUiP1;
-    }
-
-    public void setBoardUiP1(GridPane boardUiP1) {
-        this.boardUiP1 = boardUiP1;
-    }
-
-    public GridPane getBoardUiP2() {
-        return boardUiP2;
-    }
-
-    public void setBoardUiP2(GridPane boardUiP2) {
-        this.boardUiP2 = boardUiP2;
-    }
 
     @FXML
     private GridPane boardUiP1; //Ui pour le terrain du joueur 1
@@ -79,23 +64,11 @@ public class BoardController implements Initializable {
 
     private Stack<Card> deck;
 
-    public boolean getWaitingForCard() {
-        return waitingForCard;
-    }
 
-    public void setWaitingForCard(boolean waitingForCard) {
-        this.waitingForCard = waitingForCard;
-    }
-
-    public Card getTempCard() {
-        return tempCard;
-    }
-
-    public void setTempCard(Card tempCard) {
-        this.tempCard = tempCard;
-    }
 
     private boolean waitingForCard=false;
+
+    private boolean waitingForCard2 = false;
     private Card tempCard;
     //endregion
 
@@ -144,11 +117,17 @@ public class BoardController implements Initializable {
         tempCard=card;
     }
 
+    public void WaitingForCard2(Card card,Boolean bool){
+        waitingForCard2=bool;
+        tempCard=card;
+    }
+
     //endregion
 
     //region Update
     public void UpdateBoard() throws Exception {
         boardUiP1.getChildren().clear();
+        boardUiP1.getColumnConstraints().clear();
         int count=0;
         for (Card card : getPlayer1().getBoard()) {
             System.out.println("Player1:"+card.getRace().getName());
@@ -159,6 +138,7 @@ public class BoardController implements Initializable {
             count++;
         }
         boardUiP2.getChildren().clear();
+        boardUiP2.getColumnConstraints().clear();
         count=0;
         for (Card card : getPlayer2().getBoard()) {
             System.out.println("Player2:"+card.getRace().getName());
@@ -173,6 +153,7 @@ public class BoardController implements Initializable {
     public void HandUpdate() throws Exception{
         //Refresh player1
         handUiP1.getChildren().clear();
+        handUiP1.getColumnConstraints().clear();
         int count = 0;
         for (Card card : getPlayer1().getHand()) {
             CardController cardController = new CardController(card,this);
@@ -184,6 +165,7 @@ public class BoardController implements Initializable {
 
         //Refresh player2
         handUiP2.getChildren().clear();
+        handUiP2.getColumnConstraints().clear();
         count = 0;
         for (Card card : getPlayer2().getHand()) {
             CardController cardController = new CardController(card,this);
@@ -288,9 +270,17 @@ public class BoardController implements Initializable {
         this.boardUiP1.setVgap(15);
         this.boardUiP1.setHgap(15);
         this.boardUiP1.setAlignment(Pos.CENTER);
+        //Space between 2 card
+        this.boardUiP2.setVgap(15);
+        this.boardUiP2.setHgap(15);
+        this.boardUiP2.setAlignment(Pos.CENTER);
         //Initialisation du GridPane avec 1 ligne (boardPlayer vide)
         final RowConstraints rowConstraints = new RowConstraints();
         this.boardUiP1.getRowConstraints().add(rowConstraints);
+    }
+
+    private void InitGameMaster(){
+
     }
 
 
@@ -305,5 +295,44 @@ public class BoardController implements Initializable {
         return player2;
     }
     public GridPane getHandUiP1() {return handUiP1;}
+    public GridPane getBoardUiP1() {
+        return boardUiP1;
+    }
+
+    public void setBoardUiP1(GridPane boardUiP1) {
+        this.boardUiP1 = boardUiP1;
+    }
+
+    public GridPane getBoardUiP2() {
+        return boardUiP2;
+    }
+
+    public void setBoardUiP2(GridPane boardUiP2) {
+        this.boardUiP2 = boardUiP2;
+    }
+
+    public boolean getWaitingForCard() {
+        return waitingForCard;
+    }
+
+    public void setWaitingForCard(boolean waitingForCard) {
+        this.waitingForCard = waitingForCard;
+    }
+
+    public Card getTempCard() {
+        return tempCard;
+    }
+
+    public void setTempCard(Card tempCard) {
+        this.tempCard = tempCard;
+    }
+
+    public boolean getWaitingForCard2() {
+        return waitingForCard2;
+    }
+
+    public void setWaitingForCard2(boolean waitingForCard2) {
+        this.waitingForCard2 = waitingForCard2;
+    }
     //endregion
 }
