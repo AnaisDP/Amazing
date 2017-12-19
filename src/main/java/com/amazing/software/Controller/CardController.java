@@ -108,6 +108,13 @@ public class CardController extends Pane {
                                     System.out.println(e);
                                 }
 
+                            }else if("Dryad".equals(card.getRace().getName())){
+                                try {
+                                    int index = WaitForCard(null);
+                                    card.getRace().Power(parent.getPlayer1(), parent.getPlayer2(), parent.getDeck(), parent.getPlayer2().getBoard().get(index));
+                                } catch (Exception e) {
+                                    System.out.println(e);
+                                }
                             } else {
                                 card.getRace().Power(parent.getPlayer1(), parent.getPlayer2(), parent.getDeck(), null);
                             }
@@ -171,8 +178,14 @@ public class CardController extends Pane {
                                     } catch (Exception e) {
                                         System.out.println(e);
                                     }
-
-                                } else {
+                                } else if("Dryad".equals(card.getRace().getName())){
+                                    try {
+                                        int index = WaitForCard(null);
+                                        card.getRace().Power(parent.getPlayer1(), parent.getPlayer2(), parent.getDeck(), parent.getPlayer2().getBoard().get(index));
+                                    } catch (Exception e) {
+                                        System.out.println(e);
+                                    }
+                                }else {
                                     card.getRace().Power(parent.getPlayer1(), parent.getPlayer2(), parent.getDeck(), null);
                                     try {
                                         parent.HandUpdate();
@@ -205,10 +218,23 @@ public class CardController extends Pane {
                                 }
                             }
                             break;
+                        case "boardUiP2":
+                            if(parent.getWaitingForCard()){
+                                parent.tempCard.getRace().Power(parent.getPlayer1(),parent.getPlayer2(),parent.getDeck(),card);
+                                parent.setWaitingForCard(false);
+                                try {
+
+                                    parent.UpdateGameMaster("Player 1 has picked a "+card.getRace().getName());
+                                } catch (Exception e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                            break;
                     }
                     //parent.getPlayer1().Play(card);
                     //parent.updateBoard();
                 }
             });
         }
+
     }
