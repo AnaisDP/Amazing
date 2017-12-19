@@ -2,6 +2,7 @@ package com.amazing.software.Controller;
 
 import com.amazing.software.Main;
 import com.amazing.software.Model.Card;
+import com.amazing.software.Model.IA;
 import javafx.application.Application;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -28,7 +29,7 @@ import java.util.ResourceBundle;
 public class CardController extends Pane {
 
     BoardController parent;
-
+    private IA ia;
     @FXML
     Pane pane;
 
@@ -231,6 +232,8 @@ public class CardController extends Pane {
                             }
                             break;
                     }
+                   int index=ia.makeMove();
+                    
                     //parent.getPlayer1().Play(card);
                     //parent.updateBoard();
                 }
