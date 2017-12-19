@@ -109,7 +109,7 @@ public class BoardController implements Initializable {
 
     //region Update
     public void UpdateBoard() throws Exception {
-        boardUiP1.getColumnConstraints().remove(0,boardUiP1.getColumnConstraints().size());
+        boardUiP1.getChildren().clear();
         int count=0;
         for (Card card : getPlayer1().getBoard()) {
             System.out.println("Player1:"+card.getRace().getName());
@@ -119,7 +119,7 @@ public class BoardController implements Initializable {
             boardUiP1.add(newCard.getPane(),count,0);
             count++;
         }
-        boardUiP2.getColumnConstraints().remove(0,boardUiP2.getColumnConstraints().size());
+        boardUiP2.getChildren().clear();
         count=0;
         for (Card card : getPlayer2().getBoard()) {
             System.out.println("Player2:"+card.getRace().getName());
@@ -133,7 +133,7 @@ public class BoardController implements Initializable {
     }
     public void HandUpdate() throws Exception{
         //Refresh player1
-        handUiP1.getColumnConstraints().remove(0,handUiP1.getColumnConstraints().size());
+        handUiP1.getChildren().clear();
         int count = 0;
         for (Card card : getPlayer1().getHand()) {
             CardController cardController = new CardController(card,this);
@@ -144,7 +144,7 @@ public class BoardController implements Initializable {
         }
 
         //Refresh player2
-        handUiP2.getColumnConstraints().remove(0,handUiP2.getColumnConstraints().size());
+        handUiP2.getChildren().clear();
         count = 0;
         for (Card card : getPlayer2().getHand()) {
             CardController cardController = new CardController(card,this);
